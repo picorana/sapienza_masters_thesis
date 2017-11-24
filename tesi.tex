@@ -1,0 +1,317 @@
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+% !TeX spellcheck = it_IT
+
+\documentclass[LaM,binding=0.6cm]{sapthesis}
+
+\usepackage{microtype}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenx}
+
+\usepackage{hyperref}
+\hypersetup{pdftitle={},pdfauthor={Sara Di Bartolomeo}}
+
+% Remove in a normal thesis
+\usepackage{lipsum}
+\usepackage{curve2e}
+\definecolor{gray}{gray}{0.4}
+\newcommand{\bs}{\textbackslash}
+
+% Commands for the titlepage
+\title{Ontology extraction and population \\ from user-generated text on online marketplaces}
+\author{Sara Di Bartolomeo}
+\IDnumber{1494990}
+\course{Ingegneria Informatica}
+\courseorganizer{Ingegneria dell'Informazione, Informatica e Statistica}
+\AcademicYear{2016/2017}
+\copyyear{2017}
+\advisor{Prof. Riccardo Rosati}
+\coadvisor{Dr. Nome Cognome}
+\authoremail{dibartolomeo.sara@gmail.com}
+
+\examdate{16 April 2013}
+\examiner{Prof. Nome Cognome}
+\examiner{Prof. Nome Cognome}
+\examiner{Dr. Nome Cognome}
+\versiondate{\today}
+
+
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\dedication{Dedicato a\\ sdkjso}
+
+\begin{abstract}
+%This document is an example which shows the main features of
+%the \LaTeXe\ class \texttt{sapthesis.cls} developed by Francesco Biccari with the help of GuIT (Gruppo Utilizzatori Italiani di \TeX).
+\end{abstract}
+
+\begin{acknowledgments}
+%Ho deciso di scrivere i ringraziamenti in italiano per dimostrare la mia gratitudine verso i membri del GuIT, il Gruppo Utilizzatori Italiani di \TeX, e, in particolare, verso il prof. Enrico Gregorio.
+\end{acknowledgments}
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{Introduction}
+ TODO
+
+\chapter{Related works}
+
+As data becomes more and more important, the idea of making use of the wealth of text produced by internet users in the form of comments or reviews is now widespread. \\
+
+My work has been mainly inspired by the thesis of another student who graduated in the same degree course I did just a few months ago. His thesis was about \\
+I was also inspired by a bot 
+
+From that point, 
+
+\chapter{Collecting Data}
+
+Modern online marketplaces often offer customers the ability to give feedback to the vendors, often in the form of reviews. Recently, some platforms also started to insert question/answer forms, in order to let the users be able to formulate questions about a product, and have other users or the seller respond to their inquiries about the product. \\
+
+Feedback is given by the users in the form of:
+\begin{itemize}
+	\item Numerical score (i.e. 1 to 5 stars)
+	\item Reviews
+	\item Questions and Answers
+\end{itemize}
+
+Although the first value is very easy to be semantically represented, the latter ones aren't so straightforward. They are, infact, expressed in natural language, and their analysis will be the focus of the following chapters. \\
+
+The first step of the project is, thus, the collection of data. 
+
+\section{Amazon}
+
+The main focus of the project is extracting data from the biggest marketplace as of today, namely, Amazon. As stated in an article by Business Insider \cite{intelligence_amazon_nodate}, Amazon is accountable for 43\% of online sales in the US in 2016. \\
+
+TODO: insert more data about amazon, explain why amazon is important
+
+\section{The challenges}
+
+Amazon offers an API that makes available some of the information I wanted to examine. Unfortunately, not the request limits imposed to API users nor the information made available were useful for the purpose of this project. \\
+Indeed, on 8 November 2010 Amazon removed the possibility to retrieve reviews from their API, returning now an URL to an IFrame containing just the first three reviews. The reason behind the removal of this feature were never explained by Amazon, and it has been discussed that the huge amount of data represented by written feedback is now considered a valuable resource that Amazon wants to protect. \\
+Offering the first three reviews in an IFrame is intended for sellers to showcase on their website some Amazon reviews about their products, but I needed much more than just three reviews per product. The nature of the IFrame DOM element makes it difficult to deal with for accessing its contents, and makes the process of retrieving clean review content similar to the process of scraping a web page. \\
+
+This led to me building a scraper to retrieve the data.
+
+\section{Scraping}
+
+A scraper is a software that takes as input data formatted for display (the code of a webpage, in this case) and extracts meaningful data so it can be stored or manipulated as desired. \\
+
+TODO: write more about the scraper 
+
+\section{amazon-scraper}
+\texttt{amazon-scraper} is the name I gave to the software I wrote.
+
+\section{Shape of the collected data}
+
+
+
+\chapter{Processing the information}
+
+\section{Dissecting information}
+
+\subsection{Pattern recognition in strings}
+
+\subsection{Language use differences in reviews and questions}
+
+\subsection{Open ended questions versus closed ended questions}
+
+Questions about a product on a online marketplace can be open-ended or closed-ended. The affiliation of each question to one of these categories entails major differences in how information is expressed. \\
+
+A \textbf{closed-ended} question is a question that accepts 'yes' or 'no' as answer. An example of a closed-ended question is:
+\begin{quote}
+\textbf{Question:} Does this phone have a camera? \\
+\textbf{Answer:} Yes.
+\end{quote} 
+
+An \textbf{open-ended} question is, instead, a question that expects a more complex answer, such as a list, an explanation, a description. An example of an open-ended question is:
+\begin{quote}
+\textbf{Question:} What features does this phone have? \\
+\textbf{Answer:} A camera, two sim slots and a headphone jack.
+\end{quote}
+
+As you can see, information is expressed in a very straightforward way in closed-ended questions. If we, through natural language processing, manage to understand the object of the question, the answer is just a boolean value representing if the analyzed product corresponds to the requested quality or not.
+
+\subsubsection{Classifying the questions}
+Based on the work of [insert link], I used a simple Naive Bayes classifier to discern closed-ended from open-ended questions.
+The classifier has been trained on a pre-labeled dataset of [N] questions and answers. The labels were "open" or "Y/N".
+
+\subsubsection{Classifying the answers}
+In the case of closed-ended questions, I analyzed the answers.
+The answers may be as simple as a "Yes" or "No", and in this situation the outcome is straightforward, but it is not always the case.
+Positive answers may appear in forms similar to:
+\begin{quote}
+\textbf{Question:} Does it work in Argentina? \\
+\textbf{Answer:} It does work very well in Argentina.
+
+\textbf{Question:} Does it work in Argentina? \\
+\textbf{Answer:} Absolutely.
+
+\textbf{Question:} Does it work in Argentina? \\
+\textbf{Answer:} I think it does.
+\end{quote}
+These are positive forms, but do not include the term "Yes". \\
+
+Another detail to take into account is the possibility for a user to answer with an unclear or undefined answer. For this purpose, when classifying the answers, we consider a third "Unknown" label.
+Answers along the lines of:
+
+\begin{quote}
+\textbf{Answer:} I don't know.
+\textbf{Answer:} I'm not sure.
+\end{quote}
+
+or other unclear answers are considered Unknown answers.
+
+\subsection{Natural language processing}
+
+\chapter{Ontology extraction and population}
+
+\chapter{Results}
+
+\section{Use cases}
+
+\chapter{Future works}
+
+\chapter{Conclusioni}
+
+\chapter{Style features of \textsf{sapthesis}}
+
+In this chapter I will discuss my stylistic choices of \textsf{sapthesis}.
+I will show the page layout geometry and I will describe the page style.
+
+\section{Page layout}
+
+The page is fixed at the dimensions of an A4 paper, therefore you have to print your thesis on A4 paper to obtain the best results. The font dimension is fixed at 11\, pt. The text column and the margins are chosen to fill to the best an A4 paper while keeping a reasonable line length (396\, pt) for a good readability. The text height and the text width are in golden ratio (\textasciitilde 1.6180) as well as the outer and inner margins in a two-side document after binding margin removal. Also the top margin (excluding the header) and bottom margin are in the golden ratio. In Fig.~\ref{layout} a sketch of the \textsf{sapthesis} page layout is shown.
+
+\begin{figure}[h]
+\centering
+\setlength{\unitlength}{0.27mm}
+\begin{picture}(420,297)(-210,0)
+\polyline(-210,0)(210,0)(210,297)(-210,297)(-210,0)
+\Line(0,0)(0,297)
+\put(27.05,37.4){\polygon(0,0)(139.2,0)(139.2,223.8)(0,223.8)}
+\put(-27.05,37.4){\polygon(0,0)(-139.2,0)(-139.2,223.8)(0,223.8)}
+\put(27.05,268.16){\polygon(0,0)(139.2,0)(139.2,4.22)(0,4.22)}
+\put(-27.05,268.16){\polygon(0,0)(-139.2,0)(-139.2,4.22)(0,4.22)}
+\end{picture}
+\caption{Page layout scheme of \textsf{sapthesis class} using a zero binding margin.}
+\label{layout}
+\end{figure}
+
+
+\section{Page style}
+
+The captions have a smaller font respect to the text and the label is in boldface. The appearance of the margin notes has been improved.
+They have the same font dimension of the footnotes and are typed in italics.
+Moreover I defined a new command to typeset margin note aligned to the left on the right page and vice versa on the left page.
+Notice that if a binding margin greater than 1.5\, cm is used, the dimensions of the margin notes become too small and very ugly.
+Do not use them in this case.
+
+The mathematical objects, figures and tables are numbered within the chapters (e.g. 1.1, 1.2,\ldots for the first chapter, 2.1, 2.2 for the second one and so on\ldots). See for example the number of this simple equation
+\begin{equation}
+x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\end{equation}
+
+
+The title page is automatically composed when the \texttt{\bs maketitle} command is given.
+The parameters needed for the title page, author, title, etc\ldots , are supplied by dedicated commands explained in the next section.
+Two copies of the university logo in \texttt{pdf} format, one for color printing and the other one for black and white printing, are supplied in the \textsf{sapthesis} package. They are shown in Fig.~\ref{fig:largenenough}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{sapienza-MLred-pos}\\[3ex]
+\includegraphics[width=0.7\textwidth]{sapienza-MLblack-pos}
+\caption{Logo of the Sapienza -- University of Rome.}
+\label{fig:largenenough}
+\end{figure}
+
+
+
+\section{About figures and tables}
+
+As regards the image formats, please use vector images as much as possible! Use jpg images only for photographs! pdf\LaTeX\ supports the pdf, jpg and png formats.
+
+A very simple table is show in Tab.~\ref{tab:letters}. Remember to typeset
+always the table caption above the table. Do not use vertical lines.
+
+\begin{table}
+\caption{This is a simple table.}
+\label{tab:letters}
+\centering
+\begin{tabular}{lcc}
+\toprule
+Letter & Test & Test \\
+\midrule
+A & C & E \\
+B & D & F \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{A section}
+
+In this manual you can skip the gray text because it is just dummy text.
+
+\textcolor{gray}{\lipsum[1-10]}
+
+
+
+\section{Another section}
+
+In this manual you can skip the gray text because it is just dummy text.
+
+\textcolor{gray}{\lipsum}
+
+
+\appendix
+\chapter{Special commands provided by \textsf{sapthesis}}
+
+\textsf{Sapthesis} provides some special commands, particularly useful for scientific works. You can use for example the roman shape, instead of the italic, for the imaginary unit (\texttt{\bs iu}) and Napier's number (\texttt{\bs eu}):
+\begin{equation}
+\eu^{\iu\pi}+1=0
+\end{equation}
+
+There are also two commands to speed up the writing of derivatives. In the following example we have used the commands \texttt{\bs der} and \texttt{\bs pder}):
+\begin{equation}
+\der{f}{x} \qquad \pder[2]{f}{y}
+\end{equation}
+
+
+\textsf{Sapthesis} provides also 4 commands to improve the writing of subscripts, \texttt{\bs rb} and \texttt{\bs tb}, and superscripts, \texttt{\bs rp} and \texttt{\bs tp}. Two of these commands, \texttt{\bs rb} and \texttt{\bs rp}, can be used both in text and in math mode and compose their argument in roman. The other two, \texttt{\bs tb} and \texttt{\bs tp}, can be used only in text mode and compose their argument as are. Here it is an usage example of \texttt{\bs rb} and \texttt{\bs rp}:
+\[
+a_b \neq a\rb{b}\qquad a^b \neq a\rp{b}
+\]
+And here it is an usage example of \texttt{\bs tb}: \emph{Cu\tb{It} indicates copper bought in Italy}. And a usage example of \texttt{\bs ts}: \emph{Cher G\tp{le} Napol\'eon}.
+
+
+Then several commands for the correct typesetting of unit of measurements are provided. For example the command \texttt{\bs un} typesets its argument in roman and leaves a thin space between the number and the unit: $25\un{m}$, $3.5\un{m/s}$. Other commands are: (\texttt{\bs g}) 45\g, (\texttt{\bs C}) 30\,\C, (\texttt{\bs A}) 12\,\A, (\texttt{\bs micro}) 40\,\micro m, (\texttt{\bs ohm}) 27\,\ohm. 
+
+We have also \texttt{\bs x} as abbreviation of \texttt{\bs times}: \$7 \bs x 10\^{}5\$ gives $7 \x 10^5$. Then \texttt{\bs di} is the differential symbol which automatically insert the correct spacing.
+\[
+\int x \di x
+\]
+
+Finally we have defined the color \textsf{sapred} which is the official color
+of Sapienza -- University of Rome. It is defined as RGB(130,36,51). \textcolor{sapred}{This text is written with the color \textsf{sapred}.}
+
+In the following dummy text you can observe the usage of \texttt{\bs mnote} command which typesets fancy margin notes.
+
+\textcolor{gray}{\lipsum}
+\marginpar{This is a fancy margin note!}
+\textcolor{gray}{\lipsum}
+
+\backmatter
+% bibliography
+\cleardoublepage
+\phantomsection
+\bibliographystyle{sapthesis} % BibTeX style
+\bibliography{bibliography} % BibTeX database without .bib extension
+
+\end{document}
