@@ -11,9 +11,12 @@
 \usepackage{setspace}
 \onehalfspacing
 \usepackage{multirow}
-
+\usepackage{bera}
+\usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{qtree}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
 \hypersetup{pdftitle={},pdfauthor={Sara Di Bartolomeo}}
 
 % Remove in a normal thesis
@@ -21,6 +24,73 @@
 \usepackage{curve2e}
 \definecolor{gray}{gray}{0.4}
 \newcommand{\bs}{\textbackslash}
+
+% Json settings
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+% python settings
+\lstdefinelanguage{python}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+
+
 
 % Commands for the titlepage
 \title{Ontology extraction and population \\ from user-generated text on online marketplaces}
@@ -48,11 +118,12 @@
 
 \maketitle
 
-\dedication{Dedicato a\\ }
+\dedication{Dedicato a\\ nonno Lamberto}
 
 \begin{abstract}
-%This document is an example which shows the main features of
-%the \LaTeXe\ class \texttt{sapthesis.cls} developed by Francesco Biccari with the help of GuIT (Gruppo Utilizzatori Italiani di \TeX).
+
+Online marketplaces have become representative of a significant part of the global market, and they have some peculiar characteristics that make them uniquely interesting. They aggregate an enormous amount of data about the products that they are selling, in the form of product descriptions and reviews. This form of commerce is indeed a trust-based system: users form their opinions about an item according to other users' opinions, expressed in the form of reviews. Reviews, thus, contain a wealth of relevant data, but this information is expressed in natural language, meaning that it's understandable for a human being but difficult to translate into meaningful data for a computer program. This thesis addresses the problems involved with the programmatic analysis of the language contained in reviews with the purpose of extracting information to build and populate an expressive knowledge model - an ontology.
+
 \end{abstract}
 
 \begin{acknowledgments}
@@ -99,8 +170,6 @@ Giorgio, who has been at my side through all the difficulties I had to face.
  If we consider the scale on which the informations we obtain becomes significative, though, we notice that an automatized system for extracting information from text is needed. 
 
  The project presented in this thesis is aimed at extracting and structuring the information contained in user generated content regarding products on online marketplaces. 
-
-
 
  Natural Language Processing is the field that studies the interpretation, from an algorithmic point of view, of phrases in commonly written/spoken languages. Thanks to advancements in this field, we are able 
 
@@ -241,39 +310,311 @@ This may happen in the case of:
 	\item content: [example]
 \end{itemize}
 
-Therefore, a web server does not store a single web page for each 
+Therefore, a web server does not store a single web page for each possible user or product, but rather the page is built according to the user's needs every time.
+This can be implemented using different tools, like PHP and Javascript.
+
+In the case of PHP, we talk about a server-side scripting languages, meaning that PHP is executed and the page is completely built before it is sent to the client. This case does not create a problem for a scraper program, as the scraper will only receive the full, already built HTML code.
+
+In the case of javascript, instead, modifications to the structure and functionality of the pages are executed client-side. A browser would receive HTML and javascript code, then execute javascript along the rendering process. A python scraper doesn't have the ability to execute javascript without simulating the execution of a browser, therefore can't access the content after modifications included via javascript. As these modifications can include additional content in the form of text or images added to the page, this can become a relevant problem.
+
+[Luckily, Amazon uses javascript to lazy-load pictures on product pages]
 
 \section{Scraping on a larger scale}
 
-Scraping a large quantity of content introduces several challenges that I had to overcome. 
+Although scraping a small set of pages may be easy, scraping a large quantity of content introduces several challenges that I had to overcome. A part of these difficulties involved overcoming bottlenecks due to the large use of HTTP requests and the management of the results, whilst another part involved the problem of [not making amazon upset]
 
 \subsection{Identifying bottlenecks}
 
+Some of the problems associated with large-scale scraping are related to I/O bottlenecks and memory management. 
+
 \subsection{Multithreading}
+
+If we suppose that the average time for an HTTP request to return with a response is 2-3 seconds (counting the ones that work almost immediately and the ones that come back after 10 seconds), the time for processing a large number of pages adds up very fast. HTTP requests are blocking, meaning that a thread who performs an HTTP request will not continue its execution until a response is received, and if they are executed on the main thread, the whole program is blocked for a few seconds. The problem with HTTP requests is that they are highly unreliable, and the probability of one request coming back in a long time or not coming back at all is very high. For this reason, requests are never done on the main thread, and, since a scraper needs a huge number of requests, [we also need a huge number of threads]
 
 \section{Tampering requests}
 
+More than being careful about managing I/O nework flow, we also have to be careful about not being identified as a script by Amazon. Indeed, Amazon applies some measures to prevent scraping, and will try to identify the nature of the requests to detect if they can be considered legitimate requests (meaning that they have been made by a human) or not. 
+
+If the source of requests is suspected to be a bot, depending on the website's adopted policy, some measures can be taken against the practice of scraping. In the case of Amazon, the source's IP will be blacklisted, making us unable to use the same IP to keep making requests. 
+Since my project required a huge amount of pages to be collected, using a script was necessary. The following sections will deal with concealing as much as possible the nature of the scraper program against being detected as a bot by Amazon.
+The tecniques used in this project were a result of circumventing common bot detecting methods.  
+ 
 \subsection{Proxies}
+
+Many websites will try to keep track of requests coming from specific IPs. So, if a certain IP performs a huge number of requests in a short timeframe, it will be obvious that behind that IP there isn't a human, but a script. The navigation pattern is also something to keep an eye on, as it is another indicator that may identify a bot: if a server detects too many similar requests from the same user, or requests of a weird nature (i.e. too many searches), then the user may be considered suspect.
+
+As the reader will already know, a proxy server is an intermediary between a client and a destination server. If a client requests a page through a proxy, the server will receive requests that look like they are coming from the address of the proxy, and not from the address of the real source, concealing what our real IP is. So, if our IP has been blacklisted, we can use a proxy server to keep making requests from a non-blacklisted IP. 
+
+At this point, though, we have to consider two details:
+\begin{itemize}
+	\item If we always use the same proxy address to make requests to the same server, if the server suspects us, it will blacklist the address.
+	\item We want to be able to make many requests fast, and not make our scraper sleep for some seconds between requests to fake being a human. 
+\end{itemize}
+
+To solve these problems, we are going to use hundreds of proxies. The scraper randomly chooses and address from the list each time it makes a request, making them look like each one is coming from a different location.
+
+Using a proxy is made simple enough by python's \texttt{requests} module, and it only requires the IP address of the proxy server to be included in the request.  
+\\
+\begin{lstlisting}[language=python,firstnumber=1]
+proxy_list = ['191.103.252.169', '87.98.157.128', 
+              # ... many more addresses ...
+              '52.224.181.154', '5.196.189.50']
+
+res = requests.get(url,
+    proxies = { 'http' : random.sample( proxy_list, 1 )},
+)
+\end{lstlisting}
+
+Another detail to take into account is that proxy servers aren't totally reliable in terms of availability: they are just machines in different locations, and we are given no guarantee that the machines are always available on the network or will be available for the whole execution of the program, nor are we guaranteed that the same addresses will be valid in the subsequent days. For this reason, we need a set of proxies that is always up to date. 
+
+Since the proxy addresses were collected from a webpage serving the addresses [should I insert the webpages?], the solution was to use the same scraping method on the proxy serving page and request programmatically an updated page containing a fresh list of proxies after a certain amount of time.  
+
+
 \subsection{Crafting user agents}
 
+The IP address is not the only detail that can identify a user: the headers of the requests contain data that can uniquely identify the source of the requests. One example is the user agent: a string, contained in the header, that informs the server of the browser type and version and operative system from which the requests are being made. \textbf{Browser fingerprinting} is the idea of being able to uniquely identify a user based on these characteristics: these details may seem scarce, but the intersection of the set of users with the same characteristics can identify a unique users.
+
+As an example, as of December 2017, the details on my machine identify as a unique user because:
+\begin{itemize}
+\item 1.78\% of the users are running Firefox 57
+\item 14.78\% of the users are running Linux
+\item 62.99\% of the users have 'en' set as their primary language
+\item 20.19\% of the users have UTC+1 set as their timezone
+\end{itemize}
+[source: \url{https://amiunique.org}]
+
+These details are crafted by the browser and sent to the server, so obviously if my request is not sent through a browser, but through a script, the details will be different. The most relevant of the details is the user agent, that informs the server of the operative system and browser version. The default header sent to the server when making a request through \texttt{python requests} is:
+
+\begin{lstlisting}[language=python]
+{
+	'Connection': 'keep-alive', 
+	'Accept-Encoding': 'gzip, deflate', 
+	'Accept': '*/*', 
+	'User-Agent': 'python-requests/2.18.4'
+}
+\end{lstlisting} 
+
+Therefore, if the user agent is not changed, we are explicitly communicating to the server that we are making our requests through a script.
+We can, thus, programmatically change the header details and user agent. User agents are simple scripts, a valid user agent string is:
+
+\begin{lstlisting}[language=python]
+# chrome on linux 64 bit
+'User-Agent' : 'Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/540.0 (KHTML,like Gecko) Chrome/9.1.0.0 Safari/540.0'
+\end{lstlisting}
+
+\begin{lstlisting}[language=python]
+# facebook app on ipad
+'User-Agent' : 'Mozilla/5.0 (iPad; CPU OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10A523 [FBAN/FBIOS;FBAV/6.0.1;FBBV/180945;FBDV/iPad2,1;FBMD/iPad;FBSN/iPhone OS;FBSV/6.0.1;FBSS/1; FBCR/;FBID/tablet;FBLC/en_US;FBOP/1]'
+\end{lstlisting}
+
+By mixing valid strings to create new OS/browser combinations, we can then not only fake our position (with proxies), but we are now even faking what type of machine we are generating the requests on. By regenerating a new randomized user agent string every time, and using a random proxy every time, the scraper program makes the server believe that the requests are coming each time from a completely different source and user.
+
+\section{Flow diagram of the scraper}
+
+The flow diagram at \ref{fig:scraper-flow-diagram} descibes an overview of in what sequence the scraper program applies the techinques described in the previous chapters.
+
+At the beginning, a list of ASINs (unique product IDs on Amazon) is collected through an API request (this is the only step in which the API is used), together with a list of proxies. For each ASIN, a thread is started. The purpose of each thread at this point is to retrieve the entire product page, as it not only contains purposeful data about the product - i.e. in the seller's description - but it also contains the reviews and question/answers links that need to be used in the following steps. Each thread uniquely crafts a new, random user agent and uses a random proxy. When a thread receives a response, stores the reviews and question/answers links in queues, extracts the relevant content in the collected page and saves it to json. 
+
+Then, a new set of threads is started, this time working on the urls in the queue. Both reviews and question/answers are divided in multiple pages, each page containing 10 reviews or 10 questions, therefore to collect all the reviews of a product that has, for example, 100 reviews and 200 questions, we need to make in total 30 requests, plus one for the product page. After collecting the pages, the threads extract the relevant information via HTML parsing, structure them in python dictionaries according to what type of data they collected and save them in json files.  
+
+% Define block styles
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=2cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{thread} = [rectangle, draw, fill=yellow!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2cm,
+    minimum height=2em]
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[node distance = 1cm, auto]
+    % Place nodes
+    
+    \node [block] (api_requests) {API requests};
+    \node [cloud, left of=api_requests, node distance=4cm] (random_words) {random words};
+    \node [cloud, below of=api_requests, node distance=2cm] (asins) {ASINs};
+    \node [block, below of=asins, node distance=2cm] (craft) {craft product pages URLs};
+    \node [cloud, left of=craft, node distance=4cm] (useragents) {fake user agents};
+    \node [cloud, right of=craft, node distance=3cm] (proxies) {proxies};
+    \node [thread, below of=craft, node distance=3cm] (thread1) {thread to retrieve product page};
+    \node [thread, left of=thread1, node distance=3cm] (thread2) {thread to retrieve product page};
+    \node [thread, right of=thread1, node distance=3cm] (thread3) {thread to retrieve product page};
+    \node [block, below of=thread1, node distance=3cm] (queue) {insert review link in queue};
+    \node [block, left of=queue, node distance=3cm] (queue_q) {insert questions link in queue};
+    \node [thread, below of=queue, node distance=2.5cm] (thread5) {thread to retrieve reviews};
+    \node [thread, right of=thread5, node distance=2.5cm] (thread4) {thread to retrieve reviews};
+    \node [thread, right of=thread4, node distance=2.5cm] (thread6) {thread to retrieve reviews};
+    \node [thread, left of=thread5, node distance=2.5cm] (thread7) {thread to retrieve questions};
+    \node [thread, left of=thread7, node distance=2.5cm] (thread8) {thread to retrieve questions};
+    \node [thread, left of=thread8, node distance=2.5cm] (thread9) {thread to retrieve questions};
+    \node [block, below of=thread5, node distance=3cm] (json) {Save to json};
+
+    \path [line] (random_words) -- (api_requests);
+    \path [line] (proxies) -- (craft);
+    \path [line] (useragents) -- (craft);
+    \path [line] (api_requests) -- (asins);
+    \path [line] (asins) -- (craft);
+    \path [line] (craft) -- (thread1);
+    \path [line] (craft) -- (thread2);
+    \path [line] (craft) -- (thread3);
+    \path [line, dashed] (thread1) -- (queue);
+    \path [line, dashed] (thread2) -- (queue);
+    \path [line, dashed] (thread3) -- (queue);
+    \path [line, dashed] (thread1) -- (queue_q);
+    \path [line, dashed] (thread2) -- (queue_q);
+    \path [line, dashed] (thread3) -- (queue_q);
+    \path [line] (queue) -- (thread4);
+    \path [line] (queue) -- (thread5);
+    \path [line] (queue) -- (thread6);
+    \path [line] (queue_q) -- (thread7);
+    \path [line] (queue_q) -- (thread8);
+    \path [line] (queue_q) -- (thread9);
+    \path [line] (thread4) -- (json);
+    \path [line] (thread5) -- (json);
+    \path [line] (thread6) -- (json);
+    \path [line] (thread7) -- (json);
+    \path [line] (thread8) -- (json);
+    \path [line] (thread9) -- (json);
+\end{tikzpicture}
+\end{center}
+\caption{Flow diagram of the scraper}
+\label{fig:scraper-flow-diagram}
+\end{figure}
 
 \section{amazon-scraper}
-\texttt{amazon-scraper} is the name I gave to the software I wrote. In \ref{fig:amazon-scraper}
-
-\texttt{amazon-scraper} features:
-\begin{itemize}
-	\item 
-	\item
-\end{itemize}
+I implemented all the previously discussed techniques in a CLI application that can be found at \url{https://github.com/picorana/amazon-scraper}, in order to make it useful to other people or to be used as a reference. \texttt{amazon-scraper} is indeed built to be used on Amazon, but the same techniques are valid for many other domains.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{pictures/1.png}\\[3ex]
+\begin{lstlisting}[language=python]
+python app.py
+usage: app.py [-h] [--file FILE] [--save-pages] [--verbose] [--no-reviews]
+              [--no-questions] [--destination DESTINATION] [--ignore-dups]
+              [--quiet]
+              [asin [asin ...]]
+
+amazon-scraper downloads questions and reviews from amazon products
+
+positional arguments:
+  asin                  Amazon asin(s) to be scraped
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --file FILE, -f FILE  Specify path to list of asins
+  --save-pages, -p      Saves the main pages scraped
+  --verbose, -v         Logging verbosity level
+  --no-reviews          Do not scrape reviews
+  --no-questions        Do not scrape questions
+  --destination DESTINATION, -d DESTINATION
+                        Set a destination folder
+  --ignore-dups         Do not consider previous operations
+  --quiet, -q           Be quiet while scraping
+\end{lstlisting}
 \caption{\texttt{amazon-scraper} usage}
 \label{fig:amazon-scraper}
 \end{figure}
 
 \section{Shape of the collected data}
+
+After the data has been collected, it is then stored in jSON and HTML files to be later used by the next section of the program, which will proceed with the natural language analysis phase.
+
+Reviews are stored with metadata extracted from the page. They contain relevant information both in the title and in the actual text of the review, and they are also associated with a rating, that is relevant to us in later steps.
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	"rating": "5.0 out of 5 stars", 
+	"author": "Tony", 
+	"text": "I agree with the other positive reviews of this book. First, it provides a lot of useful information. All of my questions were answered in this book, and then some. Second, it's just a high quality, good looking book. If you read this book and you are not sure you want to be a beekeeper, you should probably decide not to be a beekeeper.", 
+	"title": "Love this book.", 
+	"date": "on April 16, 2014", 
+	"author_id": "ref=cm_cr_arp_d_pdp?ie=UTF8"
+}
+{
+	"rating": "5.0 out of 5 stars", 
+	"author": "Amazon Customer", 
+	"text": "killer beekeeper's handbook.  I tote it around all over.  Has helped me gain much knowledge for my new hive!  Recommended!!", 
+	"title": "Recommended!!", 
+	"date": "on October 6, 2016", 
+	"author_id": "ref=cm_cr_arp_d_pdp?ie=UTF8"
+}
+\end{lstlisting}
+
+Questions and answers have much less relevant metadata. so each dictionary contains just a question-answer couple.
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+	"question": "How long is the cable?",
+	"answer": "id say about 18 inches" 
+}
+{
+	"question": "Is this the cable and plug all together or seperate? Picture shows cable and box, then one together which doesn't come apart?",
+	"answer": "It is separate and using this charger it work great no complaints happy with product."
+}
+\end{lstlisting}
+
+This last document is made by data extracted from the product page and/or collected via what the API offers. 
+The sources can be tables or text fields included in the product pages, so this helps identify what kind of information about a product is being expressed without having to analyze the language. Although some parts of this document are expressed in natural language - like the editiorial review, that is just a short description of the product written by the seller - the majority of it is already classified in data types, therefore easier to deal with.
+
+This document may change according to what kind of product it is about. The following extract describes a book, therefore having fields such as "authors" and the number of pages makes sense, while it may not be as meaningful if we are describing, for example, a phone.
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{
+    "release_date": "1994-04-27 00:00:00", 
+    "product_type_name": "ABIS_BOOK", 
+    "isbn": "006097625X", 
+    "features": [
+        "Great product!"
+    ], 
+    "parent": null, 
+    "ean": "9780060976255", 
+    "color": null, 
+    "brand": "William Morrow Paperbacks", 
+    "sales_rank": "6092", 
+    "is_adult": null, 
+    "edition": "Reprint", 
+    "studio": "William Morrow Paperbacks", 
+    "authors": [
+        "Scott McCloud"
+    ], 
+    "genre": null, 
+    "publication_date": "1994-04-27 00:00:00", 
+    "editorial_review": "<p><strong>The bestselling international classic on storytelling and visual communication</strong></p><p><strong>\"You must read this book.\" </strong>\u2014<strong>\u00a0Neil Gaiman</strong></p><p>Praised throughout the cartoon industry by such luminaries as Art Spiegelman, Matt Groening, and Will Eisner,\u00a0Scott McCloud's <em>Understanding Comics</em>\u00a0is\u00a0a seminal examination of comics art: its rich\u00a0history, surprising\u00a0technical components, and major cultural significance.\u00a0Explore the secret world between the panels, through the lines, and within the hidden symbols of a powerful but misunderstood art form.</p>", 
+    "reviewTexts": [], 
+    "pages": "224", 
+    "manufactures": "William Morrow Paperbacks", 
+    "running_time": null, 
+    "sku": null, 
+    "asin": "006097625X", 
+    "price_and_currency": 14.48, 
+    "author": "Scott McCloud", 
+    "eisbn": null, 
+    "product_group": "Book", 
+    "region": "US", 
+    "publisher": "William Morrow Paperbacks", 
+    "upc": "884387471390", 
+    "label": "William Morrow Paperbacks", 
+    "languages": [
+        "english"
+    ], 
+    "mpn": "09787503", 
+    "part_number": "09787503", 
+    "actors": [], 
+    "parent_asin": "None", 
+    "title": "Understanding Comics: The Invisible Art", 
+    "model": null, 
+    "creators": [], 
+    "editorial_reviews": [
+        "<p><strong>The bestselling international classic on storytelling and visual communication</strong></p><p><strong>\"You must read this book.\" </strong>\u2014<strong>\u00a0Neil Gaiman</strong></p><p>Praised throughout the cartoon industry by such luminaries as Art Spiegelman, Matt Groening, and Will Eisner,\u00a0Scott McCloud's <em>Understanding Comics</em>\u00a0is\u00a0a seminal examination of comics art: its rich\u00a0history, surprising\u00a0technical components, and major cultural significance.\u00a0Explore the secret world between the panels, through the lines, and within the hidden symbols of a powerful but misunderstood art form.</p>", 
+        "A comic book about comic books. McCloud, in an incredibly accessible style, explains the details of how comics work: how they're composed, read and understood. More than just a book about comics, this gets to the heart of how we deal with visual languages in general. \"The potential of comics is limitless and exciting!\" writes McCloud. This should be required reading for every school teacher. Pulitzer Prize-winner Art Spiegelman says, \"The most intelligent comics I've seen in a long time.\""
+    ], 
+    "offer_url": "http://www.amazon.com/dp/006097625X/?tag=picorana-20", 
+    "detail_page_url": "https://www.amazon.com/Understanding-Comics-Invisible-Scott-McCloud/dp/006097625X?SubscriptionId=AKIAIRCSTDTCOYE3OA6Q&tag=picorana-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=006097625X"
+}
+\end{lstlisting}
+
 
 \chapter{Processing the information}
 
@@ -582,10 +923,13 @@ Protegé supports DL queries on the knowledge base.
 
 \texttt{color value black and brand value Samsung}
 
-
 \chapter{Results}
 
-\section{Use cases}
+The aim of this thesis was to propose a method for extracting and structuring information extracted from product reviews and more metadata on an online marketplace, a type of market in which reviews are particularly relevant.
+
+At the end of the data collection step, we had access to [] reviews, [] questions and answers, and [] product pages. The natural language analysis part produced 
+
+
 
 \chapter{Future work}
 
