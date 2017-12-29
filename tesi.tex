@@ -16,6 +16,7 @@
 \usepackage{hyperref}
 \usepackage{qtree}
 \usepackage{tikz}
+\usepackage{forest}
 \usetikzlibrary{shapes,arrows}
 \hypersetup{pdftitle={},pdfauthor={Sara Di Bartolomeo}}
 
@@ -33,6 +34,37 @@
 \lstdefinelanguage{json}{
     basicstyle=\normalfont\ttfamily,
     numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+% OWL settings
+\lstdefinelanguage{owl}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    keywords={owl, rdf, rdfs},
     numberstyle=\scriptsize,
     stepnumber=1,
     numbersep=8pt,
@@ -826,9 +858,9 @@ Analysis of the question leads us to expect that an answer should be of the form
 \chapter{Ontology extraction and population}
 
 The idea of the whole project was to make data collected from product pages on the marketplace - any kind of data present on the page, from the product details that are directly provided by the vendor, like size and color of an item, to data present in user generated text, namely reviews and questions/answers.
-
+\\
 The data collected from the analysis is composed by different data types, classes of items and relationships between them.
-
+\\
 As defined in [Gruber, 1993] \cite{gruber_translation_1993}, 
 \begin{quote}
 A specification of a representational vocabulary for a shared domain of discourse — definitions of classes, relations, functions, and other objects — is called an ontology. 
@@ -867,42 +899,137 @@ used to represent commonly perceived reality. Mathematically, ontology is the do
 the relational schema is the range of the semantic interpretation mapping. Both can be seen as
 a representation of a commonly perceived reality and intimately related.
 
-\section{Translating the data to an OWL ontology}
-[TODO]
+\subsection{Ontology Learning}
+In the context of this thesis, the core concept is the idea of ontology learning, that is the automatical extraction of content from a collection of documents or relevant data with the purpose of creating an ontology. 
+The automatical extraction of an ontology is currently a poignant topic, because we have access to an enormous amount of data, but manually populating an ontology would be a time consuming task. 
+As already discussed in the previous chapter, the method of ontology extraction applied in this project is based on natural language.
+
+\section{Choosing the formal language to represent the ontology}
+A series of languages has been developed to formally be able to formally describe and interpret an ontology.
+
+The data used for this project has some peculiar characteristics that must be taken into account when discussing the best method to represent it:
+\begin{itemize}
+	\item \textbf{Open World Assumption: } Closed World Assumption is the assumption that a statement which is not known to be true or false is to be considered false. In our case, using CWA would mean that if we don't know if an item has a characteristic, then we have to consider that item as NOT having that property. Due to the inability, in this context, to demonstrate that the information extracted is complete, we have to adopt the opposite of CWA, namely Open World Assumtpion, which allows to consider unknown values as unknown properties.
+
+	\item \textbf{A need for extensive expressivity: } Languages have differences in what kind and how knowledge can be expressed through them. Given the diverse types of data and properties, extensive expressivity was a poignant characteristic to look for.
+
+	\item \textbf{An evolving ontology: } Items on Amazon are constantly changing. More items are added, more reviews are written, and details may be updated. For this reason, we would ideally need to keep the contents of the ontology updated.
+
+	\item \textbf{Possible inconsistencies: } Reviews written by diverse users may contradict themselves or the description of the item. Dealing with the inconsistencies may have interesting outcomes, for example the discovery of a lie in the description of a product. Still, we need to manage the case in which the analyzed data contradicts itself.
+\end{itemize}
+
+We choose OWL to describe the ontology. 
+
+OWL can be used with different syntaxes, the most common one being RDF/XML, that is based on RDF (Resource Description Framework) an XML standard. The interoperability of this standard, and the support it got, makes it useful for being used on a multitude of places - written via python script, used with a reasoner, or read via javascript. 
+
+\section{Translating the data into an OWL ontology}
+
+To reach our final goal, we needed to define bridges from the data we extracted and the representation language we choose. \\
+
+\begin{itemize}
+\item Each item on Amazon is an OWL \texttt{class}, which describes a set of instances - that are the physical objects with the same name and same characteristics.
+\item Each category of items on Amazon is a \texttt{class}.
+\item Each property that an item can have is either a \texttt{Data Property} or an \texttt{Object Property}. More on this to be discussed in later sections.
+\item Properties extracted from the reviews may either be considered standard data types (strings, integers, floats, dates) or having their own class if there is more data regarding them specifically. Examples are the classes Brand and Author.
+\end{itemize}
+
+In the next sections, each one of the points is analyzed in more detail.
+
+\subsection{RDF/XML representation of a product}
+
+The following is the simple, example representation, in OWL with RDF/XML, of a product on Amazon with a single property: the color of the item.
+
+\bigskip
+
+\begin{lstlisting}[language=owl]
+<owl:Class rdf:about="#Bonafide_HardwareTM__Smart_Phone_Repair_Tool_Kit_17_Piece_Set_Screw_Driver_Torx_Pentalobe_Cell_Tools">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#Replacement_Parts"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has_color"/>
+      <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">red</owl:hasValue>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+\end{lstlisting}
+
+\bigskip
+
+The product is a smart phone repair toolkit: products are represented as classes in the produced ontology. The class of the product is also a subclass of a broader category of products, in this case, "Replacement Parts". 
+The color of the item is represented as a property of the class. Since each color didn't need, in this domain, to be described as a class, this property is represented as a Data Property, of type string, and not as a relation with another object in the ontology.\\
+
+The one above is a simplified example of a product into the ontology, included to show how an item would be represented into the ontology. As discussed in the previous chapters, each item has an extensive set of properties associated with it, but due to the verbosity of OWL syntax, including the full description of an item would require too much space for the pages of this thesis.
 
 \section{Taxonomy of classes}
-[TODO]
-Amazon categorizes each item in classes.
+
+First of all, we extracted a taxonomy based on the item categories already present on Amazon. Each item, indeed, belongs to a category that describes a broader set of items. Each category may have child categories, and a parent category, designed mainly to ease navigating through products, but not always consistent - some categories may overlap in the items they contain.\\
+
+These classes form a tree-like hierarchical structure. \\
 
 For example, the item \texttt{Trivial Pursuit Game: Classic Edition} is classified as belonging to the class \texttt{Board Games}. The class \texttt{Board Games} is a subclass of the class \texttt{Games}, which is in turn subclass of \texttt{Toys \& Games}.
 
-\texttt{Super Jumbo Playing Cards}, instead, are categorized as \texttt{Standard Playing Card Decks}, subclass, again, of \texttt{Games}
+\texttt{Super Jumbo Playing Cards}, instead, are categorized as \texttt{Standard Playing Card Decks}, subclass, again, of \texttt{Games} \\
 
-These classes form a tree-like hierarchical structure. 
+The same structure of categories has been extracted from the page and represented in OWL as classes and \texttt{subClassOf} relationships. In the example below, it is shown how the category "Wearable Technologies" is a sub-category of "Electronics":
 
-[Amazon doesn't directly show to us how this tree is made, but we can extract it with python]
+\begin{lstlisting}[language=owl]
+<owl:Class rdf:about="#Wearable_Technology">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  <rdfs:subClassOf rdf:resource="#Electronics"/>
+</owl:Class>
+\end{lstlisting}
 
-\begin{tabular}{ |l|l|l| }
-\hline
-\multicolumn{3}{ |c| }{Classes} \\
-\hline
-Depth1 & Depth2 & Depth3 \\ \hline
-\multirow{4}{*}{Defenders} 
- & LB & Lucas Radebe \\
- & DC & Michael Duburry \\
- & DC & Dominic Matteo \\
- & RB & Didier Domi \\ \hline
-\multirow{3}{*}{Midfielders} 
- & MC & David Batty \\
- & MC & Eirik Bakke \\
- & MC & Jody Morris \\ \hline
-Forward & FW & Jamie McMaster \\ \hline
-\multirow{2}{*}{Strikers} 
- & ST & Alan Smith \\
- & ST & Mark Viduka \\
-\hline
-\end{tabular}
+\bigskip
 
+Amazon does not offer a clear visualization or explanation of the categories. The tree of categories has been rebuilt by scraping the content of the page and extracting the data about how the product is classified. Every item taken into account in this thesis may belong to depth 2, 3 or 4 of the tree.\\
+
+In figure \ref{fig:electronics_taxonomy}, a part of the discussed taxonomy extracted from the documents is shown, about the product category "Electronics". 
+
+\forestset{
+  L1/.style={,edge={,line width=0.8pt}},
+  L2/.style={,edge={,line width=0.8pt}},
+  L3/.style={,edge={,line width=0.8pt}},
+}
+
+\begin{figure}
+\begin{forest}
+    for tree={
+        grow=0,reversed, % tree direction
+        parent anchor=east,child anchor=west, % edge anchors
+        edge={line cap=round},outer sep=+1pt, % edge/node connection
+        rounded corners,minimum width=15mm,minimum height=8mm, % node shape
+        l sep=10mm % level distance
+    }
+  [Electronics, L1
+    [Cell Phones and Accessories, color=blue ,L2
+    	[Unlocked Cell Phones, color=cyan, L3]
+    	[Smartwatches, color=cyan, L3]
+    	[Carrier Phones, color=cyan, L3]
+    	[Cell Phone Accessories, color=cyan, L3]
+    	[Bluetooth Headsets, color=cyan, L3]
+    	[Cell Phone Cases, color=cyan, L3]
+    ]
+    [Headphones, color=blue, L2
+    	[Earbud Headphones, color=cyan, L3]
+    	[Bluetooth Headphones, color=cyan, L3]
+    	[Noise-cancelling Headphones, color=cyan, L3]
+    	[Audiophile Headphones, color=cyan, L3]
+    	[Over-ear Headphones, color=cyan, L3]
+    ]
+    [Video Games, color=blue,L2
+    	[PlayStation 4, color=cyan, L3]
+    	[Xbox One, color=cyan, L3]
+    	[Wii U, color=cyan, L3]
+    	[PC, color=cyan, L3]
+    	[Digital Games, color=cyan, L3]
+    	[Retro Gaming \& Microconsoles, color=cyan, L3]
+    ]
+  ]
+\end{forest}
+\caption{A small extract from the taxonomy of classes about the category "Electronics"}
+\label{fig:electronics_taxonomy}
+\end{figure}
 
 \section{Populating the ontology via python}
 
@@ -927,13 +1054,15 @@ Protegé supports DL queries on the knowledge base.
 
 The aim of this thesis was to propose a method for extracting and structuring information extracted from product reviews and more metadata on an online marketplace, a type of market in which reviews are particularly relevant.
 
-At the end of the data collection step, we had access to [] reviews, [] questions and answers, and [] product pages. The natural language analysis part produced 
+At the end of the data collection step, we had access to [] reviews, [] questions and answers, and [] product pages. The natural language analysis part produced
 
 
 
 \chapter{Future work}
 
 Selection bias: users who post reviews may be a different subset than users who do not
+
+Errors in classifying items or naming
 
 \chapter{Conclusioni}
 
