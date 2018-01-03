@@ -9,7 +9,6 @@
 \usepackage[utf8]{inputenx}
 \usepackage{listings}
 \usepackage{setspace}
-\onehalfspacing
 \usepackage{multirow}
 \usepackage{bera}
 \usepackage{xcolor}
@@ -142,7 +141,19 @@
 \examiner{Dr. Nome Cognome}
 \versiondate{\today}
 
+% tikz settings
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=2cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=6em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{thread} = [rectangle, draw, fill=yellow!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2cm,
+    minimum height=2em]
 
+
+\linespread{1.5}
 
 \begin{document}
 
@@ -181,11 +192,11 @@ Giorgio, who has been at my side through all the difficulties I had to face.
 \mainmatter
 
 \chapter{Introduction}
- In recent years, the shopping habits of the general public have been changing considerably: more and more people are choosing to use online marketplaces for their purchases. This form of shopping platform has introduced several advantages: users have access to a much bigger selection of products, barriers that would otherwise have prevented access to the market to smaller sellers have been broken down.
+ In recent years, the shopping habits of the general public have been changing considerably: more and more people are choosing to use online marketplaces for their purchases. This form of shopping platform has introduced several advantages: users have access to a much bigger selection of products, and barriers that would otherwise have prevented access to the market to smaller sellers have been broken down. \\
 
  Nevertheless, these advantages are balanced by other downsides. As an example, judjing the quality and features of an item is a more complex task, as an user will only have access to photos and textual descriptions of the item.
 
- In this context, a trust-based system between multiple users has gained more and more relevance: reviews and reputation. The judgement of a buyer will be substantially affected by other users' reviews, as well as a level of trustworthyness assigned to sellers by other users.
+ In this context, a trust-based system between multiple users has gained more and more relevance: reviews and reputation. The judgement of a buyer will be substantially affected by other users' reviews, as well as a level of trustworthyness assigned to sellers by other users. \\
 
  We have to take into account that reviews represent a relevant strategic resource to sellers.
  Making an user able to gain knowledge about the quality, purpose and details of an item is a problem that concerns not only the users, but also the sellers. Indeed, a number of good reviews may be the deciding factor for a successful sale. 
@@ -195,15 +206,38 @@ Giorgio, who has been at my side through all the difficulties I had to face.
 
  \bigskip
 
- Since reviews are so relevant, they have been the object of a series of studies. They are, infact, made of unstructured informations about a product: the data they contain, if succesfully extracted, may help in identifying precisely the features of a product. 
+ Since reviews are so relevant, they have been the object of a series of studies. They are, infact, made of unstructured informations about a product: the data they contain, if succesfully extracted, may help in identifying precisely the features of a product. Though, the overwhelming amount of informations contained in reviews makes them difficult to consider in every detail for a human reader. If we consider the scale on which the informations we obtain becomes significative, though, we notice that an automatized system for extracting information from text is needed. \\ 
 
- The overwhelming amount of informations contained in reviews makes them difficult to consider in every detail for a human reader. 
+ The set of techniques implied in this thesis falls under the field of \textbf{ontology learning}, that is, by definition, the automatic generation of an ontology from a collection of documents of natural language text. \\
 
- If we consider the scale on which the informations we obtain becomes significative, though, we notice that an automatized system for extracting information from text is needed. 
+ The project presented in this thesis is aimed at extracting and structuring the information contained in user generated content regarding products on online marketplaces. The idea is to bridge different disciplines, using ideas and algorithms from machine learning, natural language processing and knowledge representation, to create an ontology. \\
 
- The project presented in this thesis is aimed at extracting and structuring the information contained in user generated content regarding products on online marketplaces. 
+ The project is composed of three main steps, in which the output of a step is the input of the following one.
 
- Natural Language Processing is the field that studies the interpretation, from an algorithmic point of view, of phrases in commonly written/spoken languages. Thanks to advancements in this field, we are able 
+ \begin{center}
+\begin{tikzpicture}[node distance = 1cm, auto]
+    % Place nodes
+    
+    \node [block] (node_1) {Collection of data};
+    \node [block, right of=node_1, node distance=4cm] (node_2) {Natural Language Processing};
+    \node [block, right of=node_2, node distance=4cm] (node_3) {Ontology Population};
+
+    \path [line] (node_1) -- (node_2);
+    \path [line] (node_2) -- (node_3);
+
+\end{tikzpicture}
+\end{center}
+
+In the following chapters, we'll describe in depth these three steps:
+\begin{itemize}
+	\item The first chapter, \textbf{Collecting Data}, describes the initial step of gathering the data used for the project, including the challenges and the methodologies. The reviews have been collected from Amazon via scraping, so the process required some foresight to be efficient and functional.
+	\item The second chapter, \textbf{Processing the Information}, describes how we extracted relevant information from the wealth of text collected previously. Natural Language Processing is the field that studies the interpretation, from an algorithmic point of view, of phrases in commonly written/spoken languages. Thanks to advancements in this field, we are able to identify, extract and classify details about the products from the reviews.
+	\item The last chapter, \textbf{Ontology Extraction and Population}, describes how the analyzed data has been used to programmatically populate an OWL ontology.
+\end{itemize}
+
+Each chapter refers to a slightly different field of study, and starts with a general description of the field and of the techniques, concepts and algorithms used, and then describes how the same concepts have been applied during the development of the project.
+
+ 
 
 
 
@@ -448,17 +482,6 @@ The flow diagram at \ref{fig:scraper-flow-diagram} descibes an overview of in wh
 At the beginning, a list of ASINs (unique product IDs on Amazon) is collected through an API request (this is the only step in which the API is used), together with a list of proxies. For each ASIN, a thread is started. The purpose of each thread at this point is to retrieve the entire product page, as it not only contains purposeful data about the product - i.e. in the seller's description - but it also contains the reviews and question/answers links that need to be used in the following steps. Each thread uniquely crafts a new, random user agent and uses a random proxy. When a thread receives a response, stores the reviews and question/answers links in queues, extracts the relevant content in the collected page and saves it to json. 
 
 Then, a new set of threads is started, this time working on the urls in the queue. Both reviews and question/answers are divided in multiple pages, each page containing 10 reviews or 10 questions, therefore to collect all the reviews of a product that has, for example, 100 reviews and 200 questions, we need to make in total 30 requests, plus one for the product page. After collecting the pages, the threads extract the relevant information via HTML parsing, structure them in python dictionaries according to what type of data they collected and save them in json files.  
-
-% Define block styles
-\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
-    text width=4.5em, text badly centered, node distance=2cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-    text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{thread} = [rectangle, draw, fill=yellow!20, 
-    text width=5em, text centered, rounded corners, minimum height=4em]
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2cm,
-    minimum height=2em]
 
 \begin{figure}
 \begin{center}
@@ -1059,6 +1082,8 @@ At the end of the data collection step, we had access to [] reviews, [] question
 
 
 \chapter{Future work}
+
+
 
 Selection bias: users who post reviews may be a different subset than users who do not
 
