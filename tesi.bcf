@@ -121,7 +121,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortscheme</bcf:key>
-      <bcf:value>nyt</bcf:value>
+      <bcf:value>nty</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
@@ -310,8 +310,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
-    <bcf:option datatype="boolean">dashed</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">maxnames</bcf:option>
     <bcf:option datatype="integer">minnames</bcf:option>
@@ -695,12 +694,12 @@
       <bcf:sortitem order="6">title</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="4">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
       <bcf:sortitem order="1">sorttitle</bcf:sortitem>
       <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="6">
       <bcf:sortitem order="1" pad_side="left" pad_width="4" pad_char="0">volume</bcf:sortitem>
@@ -2047,8 +2046,70 @@
   <!-- CITATION DATA -->
   <!-- SECTION 0 -->
   <bcf:bibdata section="0">
+    <bcf:datasource type="file" datatype="bibtex">bibliography.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">intelligence_amazon_nodate</bcf:citekey>
+    <bcf:citekey order="1">berners-lee_semantic_2001</bcf:citekey>
+    <bcf:citekey order="2">al-aswadi_study_2017</bcf:citekey>
+    <bcf:citekey order="3">biemann_ontology_2005</bcf:citekey>
+    <bcf:citekey order="4">roark_noun-phrase_2000</bcf:citekey>
+    <bcf:citekey order="5">yarowsky_unsupervised_1995</bcf:citekey>
+    <bcf:citekey order="6">thelen_bootstrapping_2002</bcf:citekey>
+    <bcf:citekey order="7">schickel-zuber_using_2007</bcf:citekey>
+    <bcf:citekey order="8">buitelaar_corelex:_1998</bcf:citekey>
+    <bcf:citekey order="9">hearst_automatic_1992</bcf:citekey>
+    <bcf:citekey order="10">maedche_learning_2001</bcf:citekey>
+    <bcf:citekey order="11">maedche_text--onto_2000</bcf:citekey>
+    <bcf:citekey order="12">kietz_method_2000</bcf:citekey>
+    <bcf:citekey order="13">volz_pruning-based_2003</bcf:citekey>
+    <bcf:citekey order="14">jeschke_information_2007</bcf:citekey>
+    <bcf:citekey order="15">navigli_ontology_2003</bcf:citekey>
+    <bcf:citekey order="16">velardi_ontolearn_2013</bcf:citekey>
+    <bcf:citekey order="17">pappachan_building_2015</bcf:citekey>
+    <bcf:citekey order="18">fernandez_villamor_semantic_2011</bcf:citekey>
+    <bcf:citekey order="19">liu_xwrap:_2000</bcf:citekey>
+    <bcf:citekey order="20">muslea_hierarchical_2001</bcf:citekey>
+    <bcf:citekey order="21">haider_ontology_2012</bcf:citekey>
+    <bcf:citekey order="22">mcauley_addressing_2016</bcf:citekey>
+    <bcf:citekey order="23">intelligence_amazon_nodate</bcf:citekey>
+    <bcf:citekey order="24">noauthor_beautiful_nodate</bcf:citekey>
+    <bcf:citekey order="25">noauthor_spacy_nodate</bcf:citekey>
+    <bcf:citekey order="26">mcauley_addressing_2016</bcf:citekey>
+    <bcf:citekey order="27">he_summarization_2011</bcf:citekey>
+    <bcf:citekey order="28">gruber_translation_1993</bcf:citekey>
+    <bcf:citekey order="29">zhou_ontology-supported_2008</bcf:citekey>
+    <bcf:citekey order="30">meersman_use_2005</bcf:citekey>
+    <bcf:citekey order="31">haider_ontology_2012</bcf:citekey>
+    <bcf:citekey order="32">dean_owl_2004</bcf:citekey>
   </bcf:section>
+  <bcf:sortlist section="0" name="nty/global" type="entry" sortscheme="nty" sortnamekeyscheme="global">
+  <bcf:sorting>
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1" pad_side="left" pad_width="4" pad_char="0">volume</bcf:sortitem>
+      <bcf:sortitem order="2">0000</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sorting>
+  </bcf:sortlist>
 </bcf:controlfile>

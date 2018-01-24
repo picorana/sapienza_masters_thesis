@@ -2,7 +2,9 @@
 % !TeX program = pdflatex
 % !TeX spellcheck = it_IT
 
-\documentclass[LaM,binding=0.6cm]{sapthesis}
+%bonomi de giacomo iocchi lazzeretti marrella navigli rosati
+
+\documentclass[LaM,oneside,binding=0.6cm]{sapthesis}
 
 \usepackage{microtype}
 \usepackage[english]{babel}
@@ -16,6 +18,10 @@
 \usepackage{qtree}
 \usepackage{tikz}
 \usepackage{forest}
+\usepackage{parskip}
+\usepackage{verbatim}
+\usepackage[style=numeric, citestyle=authoryear]{biblatex}
+\addbibresource{bibliography.bib}
 \usetikzlibrary{shapes,arrows}
 \hypersetup{pdftitle={},pdfauthor={Sara Di Bartolomeo}}
 
@@ -31,7 +37,7 @@
 \definecolor{delim}{RGB}{20,105,176}
 \colorlet{numb}{magenta!60!black}
 \lstdefinelanguage{json}{
-    basicstyle=\normalfont\ttfamily,
+    basicstyle=\normalfont\ttfamily\small,
     numbers=left,
     numberstyle=\scriptsize,
     stepnumber=1,
@@ -132,13 +138,17 @@
 \AcademicYear{2016/2017}
 \copyyear{2017}
 \advisor{Prof. Riccardo Rosati}
-\coadvisor{Dr. Nome Cognome}
+%\coadvisor{}
 \authoremail{dibartolomeo.sara@gmail.com}
 
-\examdate{16 April 2013}
-\examiner{Prof. Nome Cognome}
-\examiner{Prof. Nome Cognome}
-\examiner{Dr. Nome Cognome}
+\examdate{16 January 2018}
+\examiner{Prof. Riccardo Rosati}
+\examiner{Prof. Silvia Bonomi}
+\examiner{Prof. Giuseppe De Giacomo}
+\examiner{Prof. Luca Iocchi}
+\examiner{Prof. Riccardo Lazzeretti}
+\examiner{Prof. Andrea Marrella}
+\examiner{Prof. Roberto Navigli}
 \versiondate{\today}
 
 % tikz settings
@@ -153,7 +163,7 @@
     minimum height=2em]
 
 
-\linespread{1.5}
+\onehalfspacing
 
 \begin{document}
 
@@ -161,7 +171,7 @@
 
 \maketitle
 
-\dedication{Dedicato a\\ nonno Lamberto}
+\dedication{Dedicato a\\ Nonno Lamberto}
 
 \begin{abstract}
 
@@ -175,14 +185,16 @@ From what I experienced, the department aggregates a great deal of brilliant and
 The years I have spent in this building forged me into an Engineer, with a sharp attention for details and a deep rooted thirst for knowledge.
 \\
 \\
-Specifically, I would like to thank professor Riccardo Rosati, who has been my thesis advisor, who trusted my ideas and wisely guided me through the process of shaping them into a Master's thesis.
+In particular, I would like to thank professor Riccardo Rosati, who has been my thesis advisor, who trusted my ideas and wisely guided me through the process of shaping them into a Master's thesis.
 \\
 \\
-I would also like to thank each one of my colleagues, as many of them have been role models and figures of guidance to me. Matteo, Alessandro, Lorenzo, Alessio, Gabriele [etc]. Along with them, I want to mention a couple of colleagues from Codemotion, Massimo and Bruno, who made me really understand that creativity and technology weren't mutually exclusive concepts, and with whom I had a productive friendship that made me grow up []
+I would also like to thank each one of my colleagues, as many of them have been role models and figures of guidance to me. I am grateful for the opportunity that I had to get to know Matteo, Alessandro, Lorenzo, Gabriele, Alessio, and many more brilliant young computer scientists. Along with them, I want to mention a couple of colleagues, Massimo and Bruno, who made me really understand that creativity and coding weren't mutually exclusive concepts, and whose advice has been fundamental in my growth.
 \\ 
 \\
-Lastly, I want to thank the single person who has been, at the same time, a loving partner, a perfect teammate, and a best friend. 
-Giorgio, who has been at my side through all the difficulties I had to face. 
+A special place goes to my grandfather and my brother, who have been, to me, the greatest source of inspiration.
+\\
+\\
+Lastly, I want to thank Giorgio, who has been, at the same time, a loving partner, a great teammate, and a best friend, and who has been at my side through all the challenges I had to face. 
 \\
 
 \end{acknowledgments}
@@ -194,21 +206,35 @@ Giorgio, who has been at my side through all the difficulties I had to face.
 \chapter{Introduction}
  In recent years, the shopping habits of the general public have been changing considerably: more and more people are choosing to use online marketplaces for their purchases. This form of shopping platform has introduced several advantages: users have access to a much bigger selection of products, and barriers that would otherwise have prevented access to the market to smaller sellers have been broken down. \\
 
- Nevertheless, these advantages are balanced by other downsides. As an example, judjing the quality and features of an item is a more complex task, as an user will only have access to photos and textual descriptions of the item.
+ Nevertheless, these advantages are balanced by other downsides. As an example, judging the quality and features of an item is a more complex task, as an user will only have access to photos and textual descriptions of the item.
 
  In this context, a trust-based system between multiple users has gained more and more relevance: reviews and reputation. The judgement of a buyer will be substantially affected by other users' reviews, as well as a level of trustworthyness assigned to sellers by other users. \\
 
  We have to take into account that reviews represent a relevant strategic resource to sellers.
  Making an user able to gain knowledge about the quality, purpose and details of an item is a problem that concerns not only the users, but also the sellers. Indeed, a number of good reviews may be the deciding factor for a successful sale. 
 
- [sellers buying reviews] \\
- quotes on trust system
-
  \bigskip
 
- Since reviews are so relevant, they have been the object of a series of studies. They are, infact, made of unstructured informations about a product: the data they contain, if succesfully extracted, may help in identifying precisely the features of a product. Though, the overwhelming amount of informations contained in reviews makes them difficult to consider in every detail for a human reader. If we consider the scale on which the informations we obtain becomes significative, though, we notice that an automatized system for extracting information from text is needed. \\ 
+ Since reviews are so relevant, they have been the object of a series of studies. They are, in fact, made of unstructured informations about a product: the data they contain, if succesfully extracted, may help in identifying precisely the features of a product. Though, the overwhelming amount of informations contained in reviews makes them difficult to consider in every detail for a human reader. If we consider the scale on which the informations we obtain becomes significative, though, we notice that an automatized system for extracting information from text is needed. \\ 
 
- The set of techniques implied in this thesis falls under the field of \textbf{ontology learning}, that is, by definition, the automatic generation of an ontology from a collection of documents of natural language text. \\
+ The idea that, after the world wide web, we would one day have a Semantic Web in which the information is much more structured has existed for quite some time, now. Tim Berners-Lee explained the Semantic Web with these words \parencite{berners-lee_semantic_2001}:
+
+\bigskip
+
+\begin{quote}
+\textit{Most of the Web's content today is designed for humans to read, not for computer programs to manipulate
+meaningfully. Computers can adeptly parse Web pages for layout and routine processing—here a header, there a link to another page—but in
+general, computers have no reliable way to process the semantics. \\
+\[...\] \\
+The Semantic Web will bring structure to the meaningful content of Web pages, creating an environment where software agents roaming from
+page to page can readily carry out sophisticated tasks for users. \\
+\[...\] \\
+The Semantic Web is not a separate Web but an extension of the current one, in which information is given well-defined meaning, better enabling computers and people to work in cooperation.}
+\end{quote}
+
+\bigskip
+
+This idea, though, requires the information to have an underlying structure. As mentioned in the text above, internet contains an incredible amount of data, but it's not machine-readable. The need for a system for automatic extraction of ontologies from text is poignant for this purpose, therefore a number of researchers have concentrated their efforts on the field of \textbf{ontology learning}, that is information extraction targeted at building an ontology. \\
 
  The project presented in this thesis is aimed at extracting and structuring the information contained in user generated content regarding products on online marketplaces. The idea is to bridge different disciplines, using ideas and algorithms from machine learning, natural language processing and knowledge representation, to create an ontology. \\
 
@@ -237,28 +263,47 @@ In the following chapters, we'll describe in depth these three steps:
 
 Each chapter refers to a slightly different field of study, and starts with a general description of the field and of the techniques, concepts and algorithms used, and then describes how the same concepts have been applied during the development of the project.
 
- 
+\section{Related works}
 
+The objective of automatic or semiautomatic population of ontologies has been addressed with several techniques. There are, though, some details to take into account: the domain and the structure of the input. The input can in fact come in multiple forms: unstructured natural language, semi-structured documents (e.g. XML), an existing knowledge base, a dictionary, or a database. This thesis concentrates on unstructured natural language, and the following are possible approaches at dealing with this kind of input (\cite{al-aswadi_study_2017}, \cite{biemann_ontology_2005}):
+\begin{itemize}
+	\item \textbf{Word co-occurrence: } (\cite{roark_noun-phrase_2000}, \cite{yarowsky_unsupervised_1995}) Simply measuring how many times two words appear in the same phrase can give us an idea of how much two words are related. In Roark et al., a number of 'seed' words, representative of several categories, is chosen at the beginning, then the words that co-occur with the seed the highest amount of times are added to the respective categories. Also related to \textbf{association rules}.
+	\item \textbf{Pattern-based extraction: } \parencite{thelen_bootstrapping_2002} Similar to regular expressions, we look for patterns in the text. Starting from 'seed' words - we look for predefined patterns such as "<some verb> <some object>" (e.g. "is made of <X>") 
+	\item \textbf{Clustering-based techniques: } (\cite{schickel-zuber_using_2007}, \cite{buitelaar_corelex:_1998}) a distance measure of terms has to be defined in order to find out which terms are most similar and cluster them in groups. One particular word - the hypernym of the cluster \parencite{hearst_automatic_1992} - can be extracted from each cluster to be representative of that cluster. If we extend this to hierarchical clustering, we can obtain a hierarchy of words. Methods using Latent Semantic Indexing or Latent Dirichlet Allocation fall under this category, building clusters by trying to discover topics.
+	\item \textbf{Part-of-speech tagging: } (\cite{maedche_learning_2001}, \cite{maedche_text--onto_2000}) Part-of-speech tagging (identifying subject, verb, object in a phrase) is used to discover entities and possible relations in the phrases. \textbf{Named entity recognition} may be used to identify the types of particular named entities.
+	\item \textbf{Ontology pruning: } (\cite{kietz_method_2000}, \cite{volz_pruning-based_2003}) A generic ontology (e.g. WordNet) is used. Input text is classified according to the generic ontology to acquire domain concepts. The generic ontology is pruned to remove non-domain specific entries. Decision about which entry is domain specific and which one is not is often based on the assumption that a domain-specific concept is mentioned more often in a domain-specific corpus than in generic text.
+\end{itemize}
 
+It is also interesting to explore the range of domain on which said techniques have been applied. For example, in 2007, Jeschke et al. \cite{jeschke_information_2007} used Natural Language Processing techniques in their project, mArachna, to extract relations from mathematical text. \\
 
+It is relevant to mention Navigli et al.'s work on Ontology Learning \parencite{navigli_ontology_2003}, and in particular on OntoLearn (Reloaded) \parencite{velardi_ontolearn_2013}, in which a measure of relevance is used to extract the most relevant domain-specific terms in a collection of domain-specific documents, uses part-of-speech tagging to extract term definitions, and uses graph pruning to refine the produced graph.
 
- %As data becomes more and more important, the idea of making use of the wealth of text produced by internet users in the form of comments or reviews is now widespread. \\
+\subsection{Extracting an ontology via the structure of a website}
+The idea of extracting an ontology from the structure of a series of HTML documents has been also the object of research. Websites already have a structure that can be used as a base for building an ontology. 
 
-\chapter{Related works}
+It has been applied in \parencite{pappachan_building_2015}. The domain of interest was composed by the apps on Google Play. Since Google Play has a similar policy of making content difficult to retrieve programmatically, the cited paper required a similar work of scraping and parsing pages. The work by Pappachan et al., though, does not consider the extraction of information from reviews present on the store. \\
 
-In 2012, S.Z. Haider \cite{haider_ontology_2012} published a case study in which he used reviews from Amazon to populate an ontology. His approach used a pre-made ontology about mobile phones, and applied sentiment analysis to the Amazon reviews of three specific items (three mobile phones) to understand the opinion of the public about the qualities of the items that were being analyzed.
+The same concept is also applied in \cite{fernandez_villamor_semantic_2011}, in which they map HTML elements to RDF resources with the objective of building a semantic scraper, a concept that is also explored in \parencite{liu_xwrap:_2000} and \parencite{muslea_hierarchical_2001}.
 
-Biemann \cite{biemann_ontology_2005} published in 2005 a survey of methods to study the different approaches at extracting data from unstructured text in order to build an ontology. 
+\subsection{More related works}
 
-Julian McAuley and Alex Yang \cite{mcauley_addressing_2016} used an approach based on machine learning to classify questions and answers in the Questions/Answers section of Amazon.
+The following works are not necessarily related to the actual extraction of the ontology from natural language, but have been relevant for our project as well. \\
+
+Our first inspiration for using the content of Amazon reviews came from \parencite{haider_ontology_2012}. In 2012, he published a case study in which he used reviews from Amazon to populate an ontology. His approach used a pre-made ontology about mobile phones, and applied sentiment analysis to the Amazon reviews of three specific items (three mobile phones) to understand the opinion of the public about the qualities of the items that were being analyzed. \\
+
+The ideas about classifying questions and answers in open-ended questions and closed-ended questions came from Julian McAuley and Alex Yang \parencite{mcauley_addressing_2016}. 
 \\
+
+\section{Objective of the project}
 
 The purpose of this thesis is to build on the aforementioned works to:
 \begin{itemize}
-	\item include information from Questions/Answers sections as well as reviews
-	\item include a much bigger range of products and categories of products
-	\item  extract the structure of the ontology from the data
+	\item Extract an Ontology from user-generated content on Amazon;
+	\item Focus on reviews and question/answer sections;
+	\item Build a taxonomy of product categories from the structure of the HTML documents;
+	\item Extract the properties of the products to be included in the ontology as properties of the entities in the ontology;
 \end{itemize}
+
 
 \chapter{Collecting Data}
 
@@ -271,15 +316,22 @@ Feedback is given by the users in the form of:
 	\item Questions and Answers
 \end{itemize}
 
-Although the first value is very easy to be semantically represented, the latter ones aren't so straightforward. They are, infact, expressed in natural language, and their analysis will be the focus of the following chapters. \\
+Although the first value is very easy to be semantically represented, the latter ones are not so straightforward. They are, in fact, expressed in natural language, and their analysis will be the focus of the following chapters. \\
 
 The first step of the project is, thus, the collection of data. 
 
 \section{Amazon}
 
-The main focus of the project is extracting data from the biggest marketplace as of today, namely, Amazon. As stated in an article by Business Insider \cite{intelligence_amazon_nodate}, Amazon is accountable for 43\% of online sales in the US in 2016. \\
+The main focus of the project is extracting data from the biggest marketplace as of today, namely, Amazon. As stated in an article by Business Insider \parencite{intelligence_amazon_nodate}, Amazon is accountable for 43\% of online sales in the US in 2016. \\
 
-TODO: insert more data about amazon, explain why amazon is important
+As of November 2017, Amazon has 573 million products currently on sale \footnote{source: \url{https://www.scrapehero.com}}, and is undoubtedly a giant in its field. In the last couple of years, they also attempted the sale of a wider number of products, like fresh food and pantry items, expanding the range and types of products that can be found on their platform. \\
+
+More than the number of products that the marketplace offers, Amazon gives to the buyers the ability to review items, and post questions and answers to previously published questions. Precise data about the numbers of reviews and questions present on Amazon remains undisclosed, but a popular product can easily reach thousands of both. Having access to user comments is incredibly relevant to online buyers, because the trust they can put in other users is the best way they have to judge the quality and properties of a product. \\
+
+Amazon reviews also give users the possibility to give a numerical rating expressed in stars, from 1 to 5. This element had made Amazon reviews the object of a considerable amount of studies on sentiment analysis: the textual content of a review is already associated with an opinion - although a simple one - and this makes it useful to build a base datatset to be used on sentiment analysis on more text. The same happens to movie reviews on IMDB. \\
+
+Nevertheless, having this wealth of data in reviews on Amazon doesn't make it really accessible. Not only the reviews are written in natural language - thus not really comprised of machine-readable data - they are also organized in a difficult way to navigate. Amazon displays 10 reviews per page, therefore a person that wants to read all the reviews of a product might have to click through hundreds of pages. Not to mention that reading a thousand reviews is not feasible nor useful for a person, as the data they contain may be repetitive and may make the person miss some of the details. The users who wrote reviews, though, may have written relevant details about a product that are not present in the seller's description - even in the last review on the last page, there may be a relevant detail. 
+
 
 \begin{figure}
 \centering
@@ -291,7 +343,7 @@ TODO: insert more data about amazon, explain why amazon is important
 \section{The challenges}
 
 \subsection{Amazon API}
-Amazon offers an API that makes available some of the information I wanted to examine. Unfortunately, not the request limits imposed to API users nor the information made available were useful for the purpose of this project. \\
+Amazon offers an API that makes available some of the information I wanted to examine. Unfortunately, neither the request limits imposed to API users nor the information made available were useful for the purpose of this project. \\
 Indeed, on 8 November 2010 Amazon removed the possibility to retrieve reviews from their API, returning now an URL to an IFrame containing just the first three reviews. The reason behind the removal of this feature were never explained by Amazon, and it has been discussed that the huge amount of data represented by written feedback is now considered a valuable resource that Amazon wants to protect. \\
 Offering the first three reviews in an IFrame is intended for sellers to showcase on their website some Amazon reviews about their products, but I needed much more than just three reviews per product. The nature of the IFrame DOM element makes it difficult to deal with for accessing its contents, and makes the process of retrieving clean review content similar to the process of scraping a web page. \\
 
@@ -311,7 +363,7 @@ In addition to a number of challenges directly involved in the process, some web
 Scraping a single web page is performed in the following steps:
 
 \begin{enumerate}
-	\item An HTTP GET request is used to download the HTML code of the page that is being analyzed. The response, if the request was successfull, is HTML plain text.
+	\item An HTTP GET request is used to download the HTML code of the page that is being analyzed. The response, if the request was successful, is HTML plain text.
 	\item The response is then parsed to identify HTML components.
 	\item Thanks to the tree-like structure of HTML elements in a page, each component is stored in a tree shaped data structure, called parsetree.
 	\item The parsetree is searched according to several criteria (an example may be regular expression matching) to extract relevant data.  
@@ -341,7 +393,7 @@ Content-Type: text/html; charset=iso-8859-1
 \caption{The parsetree generated from \ref{code:example_html}}
 \end{figure}
 
-For the purpose of parsing, storing and accessing the result of the request, I used a python library designed to ease this task, BeautifulSoup \cite{noauthor_beautiful_nodate}. Processing the page in this way allows me to navigate HTML easily and query the contents. \\
+For the purpose of parsing, storing and accessing the result of the request, I used a python library designed to ease this task, BeautifulSoup \parencite{noauthor_beautiful_nodate}. Processing the page in this way allows me to navigate HTML easily and query the contents. \\
 
 In the code example above, at \ref{code:example_html}, retrieving the title of the received page would be written like this:
 \begin{lstlisting}[language=Python]
@@ -351,7 +403,7 @@ title = bs.find('title').text
 This code would perform a search on the document's parsetree, then extract what is contained in the tag \texttt{<title>}.
 
 
-Real world html pages are much more complex than this, usually containing thousands of tags, and are often dynamically generated, thus require fine scraping criteria. The procedure used needs to be able to adapt to slight modifications in the page structure and contents.
+Real world html pages are much more complex than this, usually containing thousands of tags, and are often dynamically generated, thus they require fine scraping criteria. The procedure used needs to be able to adapt to slight modifications in the page structure and contents.
 
 As you can see in \ref{fig:amazon-page}, the structure of a standard product page on Amazon is convoluted, and identifying the parts that contain relevant information via code may not be straightforward. 
 
@@ -373,7 +425,7 @@ This may happen in the case of:
 
 \begin{itemize}
 	\item visual elements: a small screen with scarce resolution won't have the ability to display pictures as large and detailed as those needed on a Retina display. For this reason, websites often choose to serve smaller resolution pictures to devices with less displaying capabilities. The visual differences may also affect the way the website's UI is intended, to reflect the way of interacting with the requesting devices: mobile browsers used via touch input often require a different interface design than the one used for their desktop version.
-	\item content: [example]
+	\item content: the content of a page can also be the object of tailoring based on the user. Some websites may choose to display certain contents based on the nationality of the user, to directly send to the users content in their native languages. In other cases, the websites send to the users content according to the account that the user has on that particular website, based on the cookies their browser stores. 
 \end{itemize}
 
 Therefore, a web server does not store a single web page for each possible user or product, but rather the page is built according to the user's needs every time.
@@ -383,21 +435,19 @@ In the case of PHP, we talk about a server-side scripting languages, meaning tha
 
 In the case of javascript, instead, modifications to the structure and functionality of the pages are executed client-side. A browser would receive HTML and javascript code, then execute javascript along the rendering process. A python scraper doesn't have the ability to execute javascript without simulating the execution of a browser, therefore can't access the content after modifications included via javascript. As these modifications can include additional content in the form of text or images added to the page, this can become a relevant problem.
 
-[Luckily, Amazon uses javascript to lazy-load pictures on product pages]
+In many cases, though, websites tend to have a fallback version in case the user's browser is not enable or doesn't have the capability of running javascript. The fallback version is often implemented by having an HTML layout that is still functional even though javascript can't be run, or by having HTML code that is displayed only when scripts can't be executed thanks to the HTML tag \texttt{noscript}.
 
 \section{Scraping on a larger scale}
 
-Although scraping a small set of pages may be easy, scraping a large quantity of content introduces several challenges that I had to overcome. A part of these difficulties involved overcoming bottlenecks due to the large use of HTTP requests and the management of the results, whilst another part involved the problem of [not making amazon upset]
+Although scraping a small set of pages may be easy, scraping a large quantity of content introduces several challenges that I had to overcome. A part of these difficulties involved overcoming bottlenecks due to the large use of HTTP requests and the management of the results, whilst another part involved the problem of not making Amazon upset.
 
-\subsection{Identifying bottlenecks}
-
-Some of the problems associated with large-scale scraping are related to I/O bottlenecks and memory management. 
+Some of the problems associated with large-scale scraping are related to I/O bottlenecks and memory management. In the following sections, we are going to address each one of the problems and discuss how we managed to overcome the obstacles.
 
 \subsection{Multithreading}
 
-If we suppose that the average time for an HTTP request to return with a response is 2-3 seconds (counting the ones that work almost immediately and the ones that come back after 10 seconds), the time for processing a large number of pages adds up very fast. HTTP requests are blocking, meaning that a thread who performs an HTTP request will not continue its execution until a response is received, and if they are executed on the main thread, the whole program is blocked for a few seconds. The problem with HTTP requests is that they are highly unreliable, and the probability of one request coming back in a long time or not coming back at all is very high. For this reason, requests are never done on the main thread, and, since a scraper needs a huge number of requests, [we also need a huge number of threads]
+If we suppose that the average time for an HTTP request to return with a response is 2-3 seconds (counting the ones that work almost immediately and the ones that come back after 10 seconds), the time for processing a large number of pages adds up very fast. HTTP requests are blocking, meaning that a thread who performs an HTTP request will not continue its execution until a response is received, and if they are executed on the main thread, the whole program is blocked for a few seconds. The problem with HTTP requests is that they are highly unreliable, and the probability of one request coming back in a long time or not coming back at all is very high. For this reason, requests are never done on the main thread, and, since a scraper needs a huge number of requests, we also need a huge number of threads.
 
-\section{Tampering requests}
+\subsection{Tampering requests}
 
 More than being careful about managing I/O nework flow, we also have to be careful about not being identified as a script by Amazon. Indeed, Amazon applies some measures to prevent scraping, and will try to identify the nature of the requests to detect if they can be considered legitimate requests (meaning that they have been made by a human) or not. 
 
@@ -405,7 +455,7 @@ If the source of requests is suspected to be a bot, depending on the website's a
 Since my project required a huge amount of pages to be collected, using a script was necessary. The following sections will deal with concealing as much as possible the nature of the scraper program against being detected as a bot by Amazon.
 The tecniques used in this project were a result of circumventing common bot detecting methods.  
  
-\subsection{Proxies}
+\subsubsection{Proxies}
 
 Many websites will try to keep track of requests coming from specific IPs. So, if a certain IP performs a huge number of requests in a short timeframe, it will be obvious that behind that IP there isn't a human, but a script. The navigation pattern is also something to keep an eye on, as it is another indicator that may identify a bot: if a server detects too many similar requests from the same user, or requests of a weird nature (i.e. too many searches), then the user may be considered suspect.
 
@@ -431,7 +481,7 @@ res = requests.get(url,
 )
 \end{lstlisting}
 
-Another detail to take into account is that proxy servers aren't totally reliable in terms of availability: they are just machines in different locations, and we are given no guarantee that the machines are always available on the network or will be available for the whole execution of the program, nor are we guaranteed that the same addresses will be valid in the subsequent days. For this reason, we need a set of proxies that is always up to date. 
+Another detail to take into account is that proxy servers are not totally reliable in terms of availability: they are just machines in different locations, and we are given no guarantee that the machines are always available on the network or will be available for the whole execution of the program, nor are we guaranteed that the same addresses will be valid in the subsequent days. For this reason, we need a set of proxies that is always up to date. 
 
 Since the proxy addresses were collected from a webpage serving the addresses [should I insert the webpages?], the solution was to use the same scraping method on the proxy serving page and request programmatically an updated page containing a fresh list of proxies after a certain amount of time.  
 
@@ -674,19 +724,17 @@ This document may change according to what kind of product it is about. The foll
 \chapter{Processing the information}
 
 Once enough data has been gathered, we can proceed with the language analysis part.
-The intent of this analysis is to extract meaningful information from text. User generated text on product pages can infact contain relevant details about a product, that may or may not be specified in the seller's description of the same product. 
+The intent of this analysis is to extract meaningful information from text. User generated text on product pages can in fact contain relevant details about a product, that may or may not be specified in the seller's description of the same product. 
 
-The reasons for a missing detail in the seller-provided [?] description may be several:
+The reasons for a missing detail in the seller-provided description may be several:
 \begin{itemize}
-	\item The seller didn't consider the detail relevant, but discussion about the detail present in the product's comments proves that clients consider the detail important
+	\item The seller did not consider the detail relevant, but discussion about the detail present in the product's comments proves that clients consider the detail important
 	\item The seller forgot to include the detail
-	\item The seller didn't realize that his product had a particular characteristic
+	\item The seller did not realize that his product had a particular characteristic
 	\item The seller lied about a characteristic of his product
 \end{itemize}
 
 The characteristics listed above define a knowledge about the product that may be considered useful for a client to judge a product, but may not be easily understood. Moreover, these characteristics are relevant in our intent of building an ontology of products.
-
-[add content here]
 
 \section{Natural language processing}
 
@@ -705,24 +753,27 @@ The process of analyzing a string is performed in four different stages:
 	\item Splitting the string in sentences and words, namely \textit{tokens}
 	\item Assigning each chunk (or word) a part-of-speech tag
 	\item Arranging the tokens in a syntactical structure (a \textit{parsetree})
-	\item Assignign to the structure a semantical meaning
+	\item Assigning to the structure a semantical meaning
 \end{itemize}
 
-[decision trees for tagging vs machine learning techniques]
+To perform these tasks (for example, part-of-speech tagging), we rely on machine learning techinques to learn from a large \textit{corpus} \footnote{A corpus is a large collection of documents with human-made annotations} how certain words in certain positions are intended.
 
-To perform these tasks (for example, part-of-speech tagging), we rely on machine learning techinques to learn from a large \textit{corpora} \footnote{A copora is a large collection of documents with human-made annotations} how certain words in certain positions are intended.
+A machine learning approach is much more versatile because it is able to manage unfamiliar structures - that is, structures of the phrase that were not present in the original dataset, but can be derived from similar entries.
 
-The machine learning approach is much more versatile because it is able to manage unfamiliar structures - that is, structures of the phrase that were not present in the original dataset, but can be derived from similar entries.
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{pictures/chunktree.png}\\[3ex]
+\caption{A tree of chunks of a sentence}
+\label{fig:chunktree}
+\end{figure}
 
-\subsection{Pattern recognition in strings}
+
 
 \subsection{Named entity recognition}
 
-[explain better how named entity recognition works]
-
 An important task in this project was the extraction of relevant entities from the sentences written by the users.
 
-For this purpose, a python library, \texttt{spacy}, has been used. \texttt{spacy} features a default model that maps entities to []
+For this purpose, a python library, \texttt{spacy} \parencite{noauthor_spacy_nodate}, has been used.
 
 An example of Named Entity Recognition performed on a simple phrase:
 \begin{quote}
@@ -753,11 +804,6 @@ For this reason, I deemed appropriate to separate the methods in which Q/A and r
 
 In \ref{fig:quest-freq-dist} and \ref{fig:rev-freq-dist}, the frequency distribution of the number of words used in both reviews and questions/answers is shown. It can clearly be seen that it is much more common for questions to employ much less words, while reviews are more verbose.
 
-Another indicator of a more complex use of the language in reviews is [variance in frequency distribution of words]
-
-[insert average question length for type of question]
-[insert word frequency distribution for each category]
-
 \section{Questions and Answers}
 
 \subsection{Open-ended questions and closed-ended questions}
@@ -779,8 +825,33 @@ An \textbf{open-ended} question is, instead, a question that expects a more comp
 As you can see, information is expressed in a very straightforward way in closed-ended questions. If we, through natural language processing, manage to understand the object of the question, the answer is just a boolean value representing if the analyzed product corresponds to the requested quality or not.
 
 \subsubsection{Classifying the questions}
-Based on the work of [insert link], I used a simple Naive Bayes classifier to discern closed-ended from open-ended questions.
-The classifier has been trained on a pre-labeled dataset of [N] questions and answers. The labels were "open" or "Y/N".
+The approach used in this section is based on the research of \parencite{mcauley_addressing_2016}, who in turn based their approach on a paper from two researchers at Google, \parencite{he_summarization_2011}.
+
+According to He and Dai, recognizing a closed ended question is similar to matching a regular expression.
+If we, in fact, consider the following categories:
+
+\textbf{Be verbs :} \{am, is, are, been, being, was, were, … \} \\
+\textbf{Modal verbs:} \{can, could, shall, should, will, would, …\} \\
+\textbf{Auxiliary verbs:} \{do, did, does, have, has, …\} \\
+
+A closed-ended question is formed in this way:
+\begin{equation} 
+[ \ S_{be} \ | \ S_{modal} \ | \ S_{aux} \ ] \ .* \ + ? 
+\end{equation}
+
+Still, this approach would catch as closed-ended questions constructs like "Is he married or not?" or "Does anybody know the price of this product?", that are clearly not closed-ended. Therefore, we exclude from the set of closed-ended questions the two following formulae:
+
+\begin{equation} 
+[ \ S_{be} \ ] [ \ a-z \ ]* [ \ or \ ] [ \ a-z \ ] \ ?
+\end{equation}
+
+and
+
+\begin{equation} 
+[\ a-z \ ]* [ \ anyone \ | \ anybody \ ][ \ a-z \ ]*[ \ tell \ | \ know \ ][ \ a-z \ ] \ ?
+\end{equation}
+
+He and Dai claim that this approach detects 91\% of the questions correctly.
 
 \subsubsection{Classifying the answers}
 In the case of closed-ended questions, I analyzed the answers.
@@ -809,52 +880,142 @@ Answers along the lines of:
 or other unclear answers are considered Unknown answers.
 
 \subsection{Detecting the object of a question}
-[better]
-Named entities are definite noun phrases that refer to specific types of individuals, such as organizations, persons, dates, and so on. 5.1 lists some of the more commonly used types of NEs. These should be self-explanatory, except for "Facility": human-made artifacts in the domains of architecture and civil engineering; and "GPE": geo-political entities such as city, state/province, and country.
 
-
+With the term "named entities", we refer to parts of the phrase that indicate specific types of individuals. The names of organizations, names of people and dates are good examples of details that could be identified as named entities. The table below reports types and examples of the most common classifications of named entities: while organizations, persons, location, date, time, money and percent may be self-explanatory, "GPE" indicates "Geo-political entities" (e.g. country names), while "facility" refers to monuments and specific places.
 
 \begin{center}
 \begin{tabular}{ c c }
-ORGANIZATION &	Georgia-Pacific Corp., WHO \\
-PERSON 	& Eddy Bonte, President Obama \\
-LOCATION &	Murray River, Mount Everest\\
+ORGANIZATION &	Google \\
+PERSON 	& President Obama \\
+LOCATION &	Mount Everest\\
 DATE &	June, 2008-06-29\\
 TIME &	two fifty a m, 1:30 p.m.\\
-MONEY &	175 million Canadian Dollars, GBP 10.40\\
-PERCENT &	twenty pct, 18.75\% \\
-FACILITY &	Washington Monument, Stonehenge\\
-GPE &	South East Asia, Midlothian \\
+MONEY &	175 dollars\\
+PERCENT &	18.75\% \\
+FACILITY &	Stonehenge\\
+GPE &	South East Asia \\
 \end{tabular}
 \end{center}
 
-The goal of a named entity recognition (NER) system is to identify all textual mentions of the named entities. This can be broken down into two sub-tasks: identifying the boundaries of the NE, and identifying its type. While named entity recognition is frequently a prelude to identifying relations in Information Extraction, it can also contribute to other tasks. For example, in Question Answering (QA), we try to improve the precision of Information Retrieval by recovering not whole pages, but just those parts which contain an answer to the user's question. Most QA systems take the documents returned by standard Information Retrieval, and then attempt to isolate the minimal text snippet in the document containing the answer. Now suppose the question was Who was the first President of the US?, and one of the documents that was retrieved contained the following passage:
+Named Entity Recognition (NER) is the practice of discovering and identifying all the named entities in a given text. 
+First, the boundaries of the named entity need to be recognized (e.g. how many and which words compose a given NE). Then, the type of NE is identified, meaning which one of the aforementioned types does the NE belong to.
+
+In our case, Named Entity Recognition is used for \textbf{closed-ended questions}, to identify the object of the question and the type it belongs to (e.g. "Does it ship to \textbf{Rome?}").
+
+Named Entity Recognition can also be useful to find the answer to a question in a document, by recognizing and isolating the chunk that contains the answer. Suppose we have the question "Who was the first President of the US?", and we know that the answer is contained in the passage:
 
 \begin{quote}
 The Washington Monument is the most prominent structure in Washington, D.C. and one of the city's early attractions. It was built in honor of George Washington, who led the country to independence and then became its first President.
 \end{quote}
 
-Analysis of the question leads us to expect that an answer should be of the form X was the first President of the US, where X is not only a noun phrase, but also refers to a named entity of type PERSON. This should allow us to ignore the first sentence in the passage. While it contains two occurrences of Washington, named entity recognition should tell us that neither of them has the correct type.
-
-
-\subsection{Differences in Q/A language for different product categories}
+We know that we should expect, as a response, a named entity classified as a PERSON. Although the phrases contains the word "Washington" twice, only one of them will actually be identified as a person.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{pictures/words0.png}\\[3ex]
-\caption{A tree of chunks of a sentence}
+\includegraphics[width=0.6\textwidth]{pictures/words0.png}\\[3ex]
+\caption{Most common words in some macrocategories on Amazon}
 \label{fig:chunktree}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{pictures/words1.png}\\[3ex]
-\caption{A tree of chunks of a sentence}
+\includegraphics[width=0.6\textwidth]{pictures/words1.png}\\[3ex]
+\caption{Most common words in some macrocategories on Amazon}
 \label{fig:chunktree}
 \end{figure}
 
-\section{Reviews}
-[better]
+\section{From NLP to Ontology population}
+
+
+An information extraction system is a system that looks through large bodies of text for specific types of entities and relations. The text is first segmented, tokenized, and then part-of-speech tagging is performed. The resulting data is used for named entity recognition: we look for specific types of entities. Based on the position of the words in the text, we try to determine if there exists a particular relationship between the entities. \\
+
+Since I wanted to focus the object of the analysis on phones, I added three new types to the standard set of types used for Named Entity Recognition:
+
+\begin{center}
+\begin{tabular}{ c c }
+TECHNOLOGY &	IR sensor, bluetooth, NFC \\
+OS 	& Android, Marshmallow  \\
+CARRIER &	Vodafone, Verizon \\
+\end{tabular}
+\end{center}
+
+\bigskip
+
+The main idea is that, after we learn which one is the subject of a phrase, we can say that <subject> has a relationship of type <verb> with the <object>, with adjectives if there are some.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{pictures/question.png}\\[3ex]
+\caption{An example of a question translated to a property of an entity into an ontology}
+\label{fig:question-analysis}
+\end{figure}
+
+In figure \ref{fig:question-analysis}, it can be seen that a closed-ended question has been tagged with part-of-speech tags. Once we recognize that the object of the question (4G) is actually a technology, we can say that the phone has a relationship of type "works with" the technology 4G.
+
+In the following section, some results extracted from the questions are shown:
+
+\begin{lstlisting}[language=json]
+[{'asin': 'B00QHYI488',
+  	'carriers_supported': {
+	  	'at&t': [
+	  		(u'Does it work with at&t',
+	        u'Yes, it works'),
+	        (u'does this phone work with at&t',
+	        u'Yup.'),
+	        ...
+	    'metro pcs': [
+	    	(u'Does this phone work with metro pcs?',
+	        u'Yes a fully unlocked GSM phone will work on Metro PCS.'),
+	        (u'will it work with metro pcs?',
+	        u'Yes'),
+	        ...
+	    'sprint': [
+	    	(u'Does this work with sprint carrier?',
+	        u"No, it doesn't work."),
+	        (u'Will this work with a sim card from sprint?',
+	        u"No, it doesn't work with sprint.")],
+  	'locations': {
+    	u'argentina': [
+    		(u'Does this phone work in Argentina? Thanks!',
+            u'yes')],
+            ...
+        u'chile': [(u'it works in Chile?', u'Yup')],
+        u'colombia': [
+            (u'Will this phone work in colombia, south america?!',
+            u'Yes, is perfect'),
+            ...
+        u'egypt': [
+        	(u'Is these phone work in Egypt or Saudi Arabia?',
+            u'Yes, it works on gsm network around the world.'),
+        u'eritrea': [
+        	(u'Will this phone work in eritrea or ethiopia ?',
+            u'Yes. Works with all gsm')],
+            ...
+        u'europe': [(u'Hi is this phone work in Europe with European card',
+            u'Yes. Quad band (gsm networks)')],
+            ...        
+  	'made_in': {
+  		u'taiwan': [
+  			(u'Is this made in Taiwan? Does i have any logos on it (i.e. AT&T)?',
+            u"It doesn't have any logo it being import from Hong Kong.")]},
+  	'technologies_supported': {
+  		'hotspot': [
+  			(u'Does it have a mobile hotspot?',
+            u"Yes it do. It's under the AT&T cluster of apps."),
+            (u'does this phone have hotspot capabilities',
+            u'Yes it does. Please check out gsmarena website for specific details. Check reviews on youtube.'),
+            ...
+        '4g': [
+            (u'can this phone work on 4g band?',
+            u'Yes ! Of cure'),
+            (u'Is this phone compatible with 4g?',
+            u'compatible yes.....'),
+            ...
+        ...
+                                    
+\end{lstlisting}
+
+\begin{comment}
 \begin{itemize}
    \item Information extraction systems search large bodies of unrestricted text for specific types of entities and relations, and use them to populate well-organized databases. These databases can then be used to find answers for specific questions.
    \item The typical architecture for an information extraction system begins by segmenting, tokenizing, and part-of-speech tagging the text. 
@@ -864,19 +1025,8 @@ Analysis of the question leads us to expect that an answer should be of the form
    \item Although chunkers are specialized to create relatively flat data structures, where no two chunks are allowed to overlap, they can be cascaded together to build nested structures.
    \item Relation extraction can be performed using either rule-based systems which typically look for specific patterns in the text that connect entities and the intervening words; or using machine-learning systems which typically attempt to learn such patterns automatically from a training corpus.
 \end{itemize}
+\end{comment}
 
-\subsection{Sentence structure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.7\textwidth]{pictures/chunktree.png}\\[3ex]
-\caption{A tree of chunks of a sentence}
-\label{fig:chunktree}
-\end{figure}
-
-\subsection{Subjects, verbs and objects}
-
-\subsection{Relations}
 
 \chapter{Ontology extraction and population}
 
@@ -884,7 +1034,7 @@ The idea of the whole project was to make data collected from product pages on t
 \\
 The data collected from the analysis is composed by different data types, classes of items and relationships between them.
 \\
-As defined in [Gruber, 1993] \cite{gruber_translation_1993}, 
+As defined in \parencite{gruber_translation_1993}, 
 \begin{quote}
 A specification of a representational vocabulary for a shared domain of discourse — definitions of classes, relations, functions, and other objects — is called an ontology. 
 \end{quote}
@@ -892,24 +1042,31 @@ A specification of a representational vocabulary for a shared domain of discours
 An ontology is perfectly apt to describe, in a human-readable and useful for [being interpreted by a computer] data and relationships between data.
 
 \section{Ontologies}
-[better]
-The main aim of ontology is to provide knowledge about specific domains that are understandable
-by both the computers and developers. It also helps to interpret a text review at a finger
-granularity with shared meanings and provides a sound semantic ground of machine-
-understandable description of digital content. Ontology improves the process of information retrieval and reasoning thus
-results in making data interoperable between different applications (Zhou, Chaovalit, 2007)
-According to Meersman(2005), most of the ontologies in the community of information
-systems are known as data models that are mainly used for structuring a fairly narrow
-application domain. He claimed that ontologies that includes lexicons and thesauri may be
-a useful first step in providing and formalizing the semantics of information
-representation. According to Meersman (2005), in near future these ontologies will act as a
-semantic domain for the information systems and will be very useful.He also predicted with
-authenticity that:
+
+An ontology serves to organize, provide and ease the access to knowledge about a specific domain, in order to make such knowledge readable and useful to both computers and humans. It improves the process of information retrieval and reasoning, and makes the information interoperable between different applications \parencite{zhou_ontology-supported_2008}. 
+
+Still, according to Meersman \parencite{meersman_use_2005}, most of the ontologies are models that structure a fairly low amount of information about a very specific domain. He also states that automatically populated ontologies based on lexicons and thesauri are going to represent an important step in the field, as he says:
+
 \begin{quote}“ It is unmistakable that with the advent of e-commerce, and the resulting natural language
 context of its related activities, that ontologies, lexicons and the thesauri and research in
 their use for system design and interpretation will receive a major market driven push”
 \end{quote}
-(Meersman,2005,p.02)
+
+Ontologies can be:
+\begin{itemize}
+	\item language-specific ontologies (e.g. Italian, English)
+	\item domain-specific ontologies (e.g. Laptop manufacturing, physics, corporate law)
+	\item application-specific ontologies (e.g. Inventory control, airline reservations, conference organization)
+\end{itemize}
+
+As for Haider \parencite{haider_ontology_2012},
+
+\begin{quote}
+Mathematically, an ontology is a domain, while the relational schema is the range of the semantic interpretation mapping. 
+Both can be seen as a representation of a commonly perceived reality and intimately related.
+\end{quote}
+
+\begin{comment}
 According to Meersman, (2005), a lexicon is defined as a language-specific ontology, for e.g
 English, Polish. Whereas thesaurus is defined as either a domain-specific ontology or an
 application specific ontology. Manufacturing, Laptop-manufacturing, Naïve physics,
@@ -921,6 +1078,7 @@ difference between ontologies and conceptual schemas but both are intimately rel
 used to represent commonly perceived reality. Mathematically, ontology is the domain while
 the relational schema is the range of the semantic interpretation mapping. Both can be seen as
 a representation of a commonly perceived reality and intimately related.
+\end{comment}
 
 \subsection{Ontology Learning}
 In the context of this thesis, the core concept is the idea of ontology learning, that is the automatical extraction of content from a collection of documents or relevant data with the purpose of creating an ontology. 
@@ -943,7 +1101,7 @@ The data used for this project has some peculiar characteristics that must be ta
 
 We choose OWL to describe the ontology. 
 
-OWL can be used with different syntaxes, the most common one being RDF/XML, that is based on RDF (Resource Description Framework) an XML standard. The interoperability of this standard, and the support it got, makes it useful for being used on a multitude of places - written via python script, used with a reasoner, or read via javascript. 
+OWL \parencite{dean_owl_2004} can be used with different syntaxes, the most common one being RDF/XML, that is based on RDF (Resource Description Framework) an XML standard. The interoperability of this standard, and the support it got, makes it useful for being used on a multitude of places - written via python script, used with a reasoner, or read via javascript. 
 
 \section{Translating the data into an OWL ontology}
 
@@ -957,6 +1115,10 @@ To reach our final goal, we needed to define bridges from the data we extracted 
 \end{itemize}
 
 In the next sections, each one of the points is analyzed in more detail.
+
+\section{Populating the ontology via python}
+
+In order to populate the ontology programmatically, we used the \textbf{owlready} library for python 3. 
 
 \subsection{RDF/XML representation of a product}
 
@@ -980,11 +1142,11 @@ The following is the simple, example representation, in OWL with RDF/XML, of a p
 \bigskip
 
 The product is a smart phone repair toolkit: products are represented as classes in the produced ontology. The class of the product is also a subclass of a broader category of products, in this case, "Replacement Parts". 
-The color of the item is represented as a property of the class. Since each color didn't need, in this domain, to be described as a class, this property is represented as a Data Property, of type string, and not as a relation with another object in the ontology.\\
+The color of the item is represented as a property of the class. Since each color did not need, in this domain, to be described as a class, this property is represented as a Data Property, of type string, and not as a relation with another object in the ontology.\\
 
 The one above is a simplified example of a product into the ontology, included to show how an item would be represented into the ontology. As discussed in the previous chapters, each item has an extensive set of properties associated with it, but due to the verbosity of OWL syntax, including the full description of an item would require too much space for the pages of this thesis.
 
-\section{Taxonomy of classes}
+\subsection{Taxonomy of classes}
 
 First of all, we extracted a taxonomy based on the item categories already present on Amazon. Each item, indeed, belongs to a category that describes a broader set of items. Each category may have child categories, and a parent category, designed mainly to ease navigating through products, but not always consistent - some categories may overlap in the items they contain.\\
 
@@ -1054,49 +1216,75 @@ In figure \ref{fig:electronics_taxonomy}, a part of the discussed taxonomy extra
 \label{fig:electronics_taxonomy}
 \end{figure}
 
-\section{Populating the ontology via python}
 
-[Populating the ontology via python has been done via the owlready library.]
 
-\section{dataProperties and objectProperties}
 
-In OWL, we have two possible kinds of properties that a member of the ontology can have:
+
+\chapter{Conclusions}
+
+\section{Summary}
+
+The aim of this thesis was to propose a method for extracting and structuring information extracted from product reviews and more metadata on an online marketplace, a type of market in which reviews are particularly relevant. \\
+
+After a research phase, in which we studied the possible approaches for extracting an ontology from natural language test, we experimented on what methodology and procedure would be the best for obtaining relevant information from the reviews.
+
+\section{Possible uses}
+
+We believe that the results of this project may be relevant not only for research purposes, but also for an eventual development for a useful tool for both clients of online marketplaces and sellers. \\
+
+Suppose, for example, that you are a seller, and want to learn more about the public's opinion of your product based on reviews. One possible approach would be using sentiment analysis on the text, or considering the star rating that accompanies each review. Still, that wouldn't inform you on what details of the product are producing bad or good reviews. For example, that your company produces phones, but one of your phones is having bad reviews. What details of the phone are causing the bad reviews? Is it the duration of the battery? Is the screen not bright enough? Or is the design of the phone considered ugly? \\
+
+This kind of information is made easily accessible, allowing a seller to better identify the public's perception of the products, and without needing to read through the wealth of reviews that every product receives. \\
+
+Now imagine that you are a customer, and you want to look for a specific product. You want a phone that has a durable battery, two sim slots, and you want it to have NFC. Amazon's search bar looks only through the items' names, and may therefore report not precise results. By having access to this ontology, instead, the search could be written as:
+\begin{center}
+\texttt{Phone and has\_sim\_slots value 2 and has\_battery value "3300 mAh" and supports\_technology value "NFC"}
+\end{center}
+
+\section{Results}
+
+At the end of the data collection step, we had access to 62651 reviews, 37990 questions and answers, and 7927 product pages. 
+
+The ontology produced in the end contains 5243 products and 97870 axioms, extracted from the natural language of the products. 
+The ontology can now be queried with DL queries, as Protegé supports them: 
+\begin{center}
+\texttt{color value black and brand value Samsung} \\
+\end{center}
+Would output every black Samsung item. 
+
+\section{Future work}
+
+During the development of this thesis, there have been a number of details that we wanted to focus more attention on, but due to time constraints we have not been able to properly work on them.
+
 \begin{itemize}
-	\item DataProperty
-	\item ObjectProperty
+	\item \textbf{Selection bias: } Selection bias is a distortion in a measure due to a sample selection that does not reflect the target population. In our case, selection bias may have influenced the results in the use of a different set of words or a different structure of the phrase. The question is: is the set of users that buys and reviews phones different from the set of users that buys skincare products? And, if that is the case, do they use language in a different way? \\
+	One example of this is the case in which \texttt{amazon.com} is more likely to ship certain categories of products more than others, thus obtaining more foreign reviewers that use a simpler english, perhaps with a greater number of typos and grammatical errors. We don't have access to the nationality of the users, but a common question asked on phones, for example, is "does this phone work in <foreign country>?", that suggests that a significant number of users is interested in using the product in another country, and may therefore be using english as a second language. \\
+	If it's true that different product categories have reviews with a different use of language, we may consider using a completely different model for each product category.
+	\item \textbf{Manage grammatical errors: } Descriptions, reviews and Q/A are written by humans, and thus prone to typos and grammatical errors. These errors may influence the results of the natural language processing step: they could be reduced with an additional preprocessing step. One idea may be to produce a dictionary of correct words, and try to map each unrecognized word to the dictionary using Levenshtein distance \footnote{\url{https://en.wikipedia.org/wiki/Levenshtein_distance}}, that measures similarity between strings by counting how many single-character edits are required to transform the first string into the second. \\
+	Though, using Levenshtein distance would mean that we would be unable to distinguish words that are very similar but have different meanings. Consider, for example, the word (purposefully wrong) "hokse", that has the same Levenshtein distance to "house" and "horse": how would we understand which word was it meant to be? \\
+	To some extent, we could consider a context in which the words are used, thus extract a probability for the original word to be one of the possible choices. Still, we wouldn't be able to distinguish "3g" from "4g".
+	In this case, the problem of understanding if an unknown word is a typo or a new word should also be considered.
+	\item \textbf{Detecting errors in item classification/item details: } As in the previous point, product descriptions are filled in by humans, and errors are possible. Sometimes, errors are evident: some items are miscategorized, some are lacking details, some have wrong details. The following are some examples of errors that we have come across:
+	\begin{itemize}
+		\item Items without a name. 
+		\item Items with impossible production years (e.g. produced in "217", probably typos)
+		\item Items classified in the wrong categories (e.g. a tabletop game classified as "kitchenware").
+	\end{itemize}
+	Perhaps diminishing the miscategorization problem can be attempted via clustering on the products, finding out which products are outliers in their respective categories and possibly assigning them the category to which they are more similar to.
+	\item \textbf{Development of a web interface to explore the ontology: } To make the ontology easily accessible by everyone we wanted to implement a web interface to visualize the entities and the relationships.
+	\item \textbf{Bridge the produced ontology with other non domain-specific ontologies: } The content of the ontology could be expanded by finding a procedure to merge the produced ontology with other ones. For example, many concepts present in this ontology (like, the manufacturing locations of the product) have exact correspondences in wordnet. 
 \end{itemize}
 
-\section{Querying the ontology}
-
-[Having an ontology like this one allows us to query the contents]
-Protegé supports DL queries on the knowledge base.
-
-\texttt{color value black and brand value Samsung}
-
-\chapter{Results}
-
-The aim of this thesis was to propose a method for extracting and structuring information extracted from product reviews and more metadata on an online marketplace, a type of market in which reviews are particularly relevant.
-
-At the end of the data collection step, we had access to [] reviews, [] questions and answers, and [] product pages. The natural language analysis part produced
 
 
-
-\chapter{Future work}
-
-
-
-Selection bias: users who post reviews may be a different subset than users who do not
-
-Errors in classifying items or naming
-
-\chapter{Conclusioni}
 
 
 \backmatter
 % bibliography
 \cleardoublepage
 \phantomsection
-\bibliographystyle{sapthesis} % BibTeX style
-\bibliography{/home/rana/thesis/bibliography} % BibTeX database without .bib extension
-
+%\bibliographystyle{sapthesis} % BibTeX style
+%\bibliography{/home/rana/thesis/bibliography} % BibTeX database without .bib extension
+\addcontentsline{toc}{chapter}{\bibname}
+\printbibliography
 \end{document}
