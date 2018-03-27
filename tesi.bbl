@@ -1,0 +1,1079 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global}
+    \entry{al-aswadi_study_2017}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=9435a55eb799a9068cdaa2aa4c2caefb}{%
+           family={AL-Aswadi},
+           family_i={A\bibinithyphendelim A\bibinitperiod},
+           given={Fatima\bibnamedelima N.},
+           given_i={F\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{uniquename=0,hash=7e68196e37dade4591a0057234739716}{%
+           family={Yong},
+           family_i={Y\bibinitperiod},
+           given={Chan\bibnamedelima Huah},
+           given_i={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{546ae17c86ba586d79df7d09a9f6ac30}
+      \strng{fullhash}{546ae17c86ba586d79df7d09a9f6ac30}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2017}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{work}
+      \field{number}{5}
+      \field{title}{A {Study} of {Various} {Ontology} {Learning} {Systems} from {Text} and a {Look} into {Future}}
+      \field{volume}{2}
+      \field{year}{2017}
+      \field{pages}{9\bibrangedash 10}
+      \range{pages}{2}
+      \verb{file}
+      \verb 17my020213.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/5NK8QGYZ/17my020213.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{noauthor_beautiful_nodate}{misc}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2017}
+      \field{labelmonth}{11}
+      \field{labelday}{24}
+      \field{datelabelsource}{url}
+      \field{labeltitlesource}{title}
+      \field{title}{Beautiful {Soup}: {We} called him {Tortoise} because he taught us.}
+      \field{urlday}{24}
+      \field{urlmonth}{11}
+      \field{urlyear}{2017}
+      \verb{url}
+      \verb https://www.crummy.com/software/BeautifulSoup/
+      \endverb
+    \endentry
+    \entry{berners-lee_semantic_2001}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=d469e0df304c98f67b55d087ea6187a1}{%
+           family={Berners-Lee},
+           family_i={B\bibinithyphendelim L\bibinitperiod},
+           given={Tim},
+           given_i={T\bibinitperiod}}}%
+        {{uniquename=0,hash=b03c1c11511fa3c1c6224a741f227be4}{%
+           family={Hendler},
+           family_i={H\bibinitperiod},
+           given={James},
+           given_i={J\bibinitperiod}}}%
+        {{uniquename=0,hash=fb144ce9931b409b1bdccdff7d3a4ecd}{%
+           family={Lassila},
+           family_i={L\bibinitperiod},
+           given={Ora},
+           given_i={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{f4ea8e196bdf65a991bf6b05075d7d62}
+      \strng{fullhash}{f4ea8e196bdf65a991bf6b05075d7d62}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific american}
+      \field{number}{5}
+      \field{title}{The semantic web}
+      \field{volume}{284}
+      \field{year}{2001}
+      \field{pages}{28\bibrangedash 37}
+      \range{pages}{10}
+      \verb{file}
+      \verb Scientific American_ Feature Article_ The Semantic Web_ May 2001.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/5GQ3BKWD/Scientific American_ Feature Article_ The Semantic Web_ May 2001.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{biemann_ontology_2005}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=786eca9f4966307b17cae6c3bba98905}{%
+           family={Biemann},
+           family_i={B\bibinitperiod},
+           given={Chris},
+           given_i={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{786eca9f4966307b17cae6c3bba98905}
+      \strng{fullhash}{786eca9f4966307b17cae6c3bba98905}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2005}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{booktitle}{{LDV} forum}
+      \field{shorttitle}{Ontology learning from text}
+      \field{title}{Ontology learning from text: {A} survey of methods.}
+      \field{volume}{20}
+      \field{year}{2005}
+      \field{pages}{75\bibrangedash 93}
+      \range{pages}{19}
+      \verb{file}
+      \verb Chris_Biemann.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/RCBVQAUN/Chris_Biemann.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{buitelaar_corelex:_1998}{book}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=04cb4f2ce7c00466a678941aef7dab90}{%
+           family={Buitelaar},
+           family_i={B\bibinitperiod},
+           given={Paul},
+           given_i={P\bibinitperiod}}}%
+        {{uniquename=0,hash=4a64620f485aa823ff73540b70faadef}{%
+           family={Pustejovsky},
+           family_i={P\bibinitperiod},
+           given={James},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Brandeis University}%
+      }
+      \strng{namehash}{821ca9097c171a5f4b7c380aca2c6c97}
+      \strng{fullhash}{821ca9097c171a5f4b7c380aca2c6c97}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{1998}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{{CoreLex}}
+      \field{title}{{CoreLex}: systematic polysemy and underspecification}
+      \field{year}{1998}
+      \verb{file}
+      \verb b769be2a9af8545185ce44c70a258d490536.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/BDRA5PG3/b769be2a9af8545185ce44c70a258d490536.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{dean_owl_2004}{article}{}
+      \name{author}{9}{}{%
+        {{uniquename=0,hash=601d6800897e4f4a6ddf87db8478f0c2}{%
+           family={Dean},
+           family_i={D\bibinitperiod},
+           given={Mike},
+           given_i={M\bibinitperiod}}}%
+        {{uniquename=0,hash=8b72bb73d18bd1abc321826df0f7b877}{%
+           family={Schreiber},
+           family_i={S\bibinitperiod},
+           given={Guus},
+           given_i={G\bibinitperiod}}}%
+        {{uniquename=0,hash=6be76b0d5f1b4728be1b309d6ab8dd95}{%
+           family={Bechhofer},
+           family_i={B\bibinitperiod},
+           given={Sean},
+           given_i={S\bibinitperiod}}}%
+        {{uniquename=0,hash=fdfa5d5679be18500277e13344d9bb8c}{%
+           prefix={van},
+           prefix_i={v\bibinitperiod},
+           family={Harmelen},
+           family_i={H\bibinitperiod},
+           given={Frank},
+           given_i={F\bibinitperiod}}}%
+        {{uniquename=0,hash=bc4f6004ab1c0d06e9b1bef4ead5b4fe}{%
+           family={Hendler},
+           family_i={H\bibinitperiod},
+           given={Jim},
+           given_i={J\bibinitperiod}}}%
+        {{uniquename=0,hash=fb33c2b55c178be2daf66ac89cdac9cc}{%
+           family={Horrocks},
+           family_i={H\bibinitperiod},
+           given={Ian},
+           given_i={I\bibinitperiod}}}%
+        {{uniquename=0,hash=00cd80e24d8af3fe991c11a25c03c97d}{%
+           family={McGuinness},
+           family_i={M\bibinitperiod},
+           given={Deborah\bibnamedelima L.},
+           given_i={D\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{uniquename=0,hash=045c7eb7b244c1be46dabcec137d7a2f}{%
+           family={Patel-Schneider},
+           family_i={P\bibinithyphendelim S\bibinitperiod},
+           given={Peter\bibnamedelima F.},
+           given_i={P\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{uniquename=0,hash=3545e4c7ca778c8403ccb286524f684d}{%
+           family={Stein},
+           family_i={S\bibinitperiod},
+           given={Lynn\bibnamedelima Andrea},
+           given_i={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{47e3231caf2908701205079fa3dfe59a}
+      \strng{fullhash}{b83c3afc6e2a57b3157cd175d17d0ef6}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelyear}{2004}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{W3C Recommendation February}
+      \field{title}{{OWL} web ontology language reference}
+      \field{volume}{10}
+      \field{year}{2004}
+      \verb{file}
+      \verb OWL-Reference.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/4W2DRI4F/OWL-Reference.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{fernandez_villamor_semantic_2011}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=119daf8b4d5949682b28ab2d1e4f5446}{%
+           family={Fernández\bibnamedelima Villamor},
+           family_i={F\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={José\bibnamedelima Ignacio},
+           given_i={J\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{uniquename=0,hash=aa02f17b8fff0d82e894aa25e12c094b}{%
+           family={Blasco\bibnamedelima Garcia},
+           family_i={B\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Jacobo},
+           given_i={J\bibinitperiod}}}%
+        {{uniquename=0,hash=bb1edb2c66a21d5aaa9ced8b1cee7443}{%
+           family={Iglesias\bibnamedelima Fernandez},
+           family_i={I\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Carlos\bibnamedelima Angel},
+           given_i={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{uniquename=0,hash=73f0f468f97e2bfc0899841d620687a3}{%
+           family={Garijo\bibnamedelima Ayestaran},
+           family_i={G\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Mercedes},
+           given_i={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{74e3fe3d73b714cdab3aad0bd0dd0ed2}
+      \strng{fullhash}{5af3eb2fdc5360a69ca605cde5732ab8}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A semantic scraping model for web resources-{Applying} linked data to web page screen scraping}
+      \field{year}{2011}
+      \verb{file}
+      \verb INVE_MEM_2011_109693.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/ZHHPR38J/INVE_MEM_2011_109693.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{gruber_translation_1993}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=d6f62ae7296670cfaa17a18ca91d28f1}{%
+           family={Gruber},
+           family_i={G\bibinitperiod},
+           given={Thomas\bibnamedelima R.},
+           given_i={T\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d6f62ae7296670cfaa17a18ca91d28f1}
+      \strng{fullhash}{d6f62ae7296670cfaa17a18ca91d28f1}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelyear}{1993}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Knowledge acquisition}
+      \field{number}{2}
+      \field{title}{A translation approach to portable ontology specifications}
+      \field{volume}{5}
+      \field{year}{1993}
+      \field{pages}{199\bibrangedash 220}
+      \range{pages}{22}
+      \verb{file}
+      \verb ontolingua-kaj-1993.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/M5BFRQAX/ontolingua-kaj-1993.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{haider_ontology_2012}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=3317490786a7ba4a5691631915fc2bde}{%
+           family={Haider},
+           family_i={H\bibinitperiod},
+           given={Syed\bibnamedelima Zeeshan},
+           given_i={S\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{3317490786a7ba4a5691631915fc2bde}
+      \strng{fullhash}{3317490786a7ba4a5691631915fc2bde}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{shorttitle}{{AN} {ONTOLOGY} {BASED} {SENTIMENT} {ANALYSIS}}
+      \field{title}{{AN} {ONTOLOGY} {BASED} {SENTIMENT} {ANALYSIS}: {A} {Case} {Study}}
+      \field{urlday}{22}
+      \field{urlmonth}{03}
+      \field{urlyear}{2017}
+      \field{year}{2012}
+      \verb{file}
+      \verb FULLTEXT01.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/GHFCJQHH/FULLTEXT01.pdf:application/pdf
+      \endverb
+      \verb{url}
+      \verb http://www.diva-portal.org/smash/record.jsf?pid=diva2:552748
+      \endverb
+    \endentry
+    \entry{he_summarization_2011}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=28424fb6a496a467f826d0e7abf2f69f}{%
+           family={He},
+           family_i={H\bibinitperiod},
+           given={Jing},
+           given_i={J\bibinitperiod}}}%
+        {{uniquename=0,hash=ce12c2d814e7fac9cd411d2b62156206}{%
+           family={Dai},
+           family_i={D\bibinitperiod},
+           given={Decheng},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ea4de3f07cf4da19971f2a677e12b8d}
+      \strng{fullhash}{3ea4de3f07cf4da19971f2a677e12b8d}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Asian {Conference} on {Machine} {Learning}}
+      \field{title}{Summarization of yes/no questions using a feature function model}
+      \field{year}{2011}
+      \field{pages}{351\bibrangedash 366}
+      \range{pages}{16}
+      \verb{file}
+      \verb he11.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/3L2A8N4H/he11.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{hearst_automatic_1992}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=b866f83d2720262aecd8698a943f9d41}{%
+           family={Hearst},
+           family_i={H\bibinitperiod},
+           given={Marti\bibnamedelima A.},
+           given_i={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{b866f83d2720262aecd8698a943f9d41}
+      \strng{fullhash}{b866f83d2720262aecd8698a943f9d41}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelyear}{1992}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 14th conference on {Computational} linguistics-{Volume} 2}
+      \field{title}{Automatic acquisition of hyponyms from large text corpora}
+      \field{year}{1992}
+      \field{pages}{539\bibrangedash 545}
+      \range{pages}{7}
+      \verb{file}
+      \verb p539-hearst.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/FE43VAHH/p539-hearst.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{intelligence_amazon_nodate}{misc}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=c2c7727ae7660228652d85ac916d871c}{%
+           family={Intelligence},
+           family_i={I\bibinitperiod},
+           given={B.\bibnamedelimi I.},
+           given_i={B\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \strng{namehash}{c2c7727ae7660228652d85ac916d871c}
+      \strng{fullhash}{c2c7727ae7660228652d85ac916d871c}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labelyear}{2017}
+      \field{labelmonth}{11}
+      \field{labelday}{19}
+      \field{datelabelsource}{url}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This story was delivered to BI Intelligence...}
+      \field{journaltitle}{Business Insider}
+      \field{title}{Amazon accounts for 43\% of {US} online retail sales}
+      \field{urlday}{19}
+      \field{urlmonth}{11}
+      \field{urlyear}{2017}
+      \verb{file}
+      \verb Snapshot:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/FNU9DZXR/amazon-accounts-for-43-of-us-online-retail-sales-2017-2.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://www.businessinsider.com/amazon-accounts-for-43-of-us-online-retail-sales-2017-2
+      \endverb
+    \endentry
+    \entry{jeschke_information_2007}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=55e8ea83586bebc2375d191ca3abfba9}{%
+           family={Jeschke},
+           family_i={J\bibinitperiod},
+           given={Sabina},
+           given_i={S\bibinitperiod}}}%
+        {{uniquename=0,hash=8041903135d0b095e6c878414af45741}{%
+           family={Wilke},
+           family_i={W\bibinitperiod},
+           given={Marc},
+           given_i={M\bibinitperiod}}}%
+        {{uniquename=0,hash=0beebfa0da3f9c24205b2d348a6f07f5}{%
+           family={Blanke},
+           family_i={B\bibinitperiod},
+           given={Marie},
+           given_i={M\bibinitperiod}}}%
+        {{uniquename=0,hash=62620a27f769042464b4293edb863cc3}{%
+           family={Natho},
+           family_i={N\bibinitperiod},
+           given={Nicole\bibnamedelima M.},
+           given_i={N\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{uniquename=0,hash=6ff3e520546df7e71c3f8d2a93dd05f6}{%
+           family={Pfeiffer},
+           family_i={P\bibinitperiod},
+           given={Olivier\bibnamedelima F.},
+           given_i={O\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{1d6247e038ab0f69683eb16fa9d97a64}
+      \strng{fullhash}{83b53f6da033efa23cd60372b6ee45d6}
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the international workshop on {Educational} multimedia and multimedia education}
+      \field{title}{Information extraction from mathematical texts by means of natural language processing techniques}
+      \field{year}{2007}
+      \field{pages}{109\bibrangedash 114}
+      \range{pages}{6}
+      \verb{file}
+      \verb 29fbc457b05251a4bccec133d6b086977e3a.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/UNJ8NEUE/29fbc457b05251a4bccec133d6b086977e3a.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{kietz_method_2000}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=71338a7668d39a1f41d9893b2b301b86}{%
+           family={Kietz},
+           family_i={K\bibinitperiod},
+           given={Joerg-Uwe},
+           given_i={J\bibinithyphendelim U\bibinitperiod}}}%
+        {{uniquename=0,hash=49b9d2bfb4f6405fb255c47831e440ec}{%
+           family={Maedche},
+           family_i={M\bibinitperiod},
+           given={Alexander},
+           given_i={A\bibinitperiod}}}%
+        {{uniquename=0,hash=c18aa734d51d70cf172773738025ada8}{%
+           family={Volz},
+           family_i={V\bibinitperiod},
+           given={Raphael},
+           given_i={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e54ad7f0e0873e6a7ec38295908b20d}
+      \strng{fullhash}{5e54ad7f0e0873e6a7ec38295908b20d}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{EKAW}-2000 {Workshop} “{Ontologies} and {Text}”, {Juan}-{Les}-{Pins}, {France}, {October} 2000}
+      \field{title}{A method for semi-automatic ontology acquisition from a corporate intranet}
+      \field{year}{2000}
+      \verb{file}
+      \verb kietz00method.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/URXVT8UP/kietz00method.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{liu_xwrap:_2000}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=7c6d82e5c8ee8a22f5632301a8146619}{%
+           family={Liu},
+           family_i={L\bibinitperiod},
+           given={L.},
+           given_i={L\bibinitperiod}}}%
+        {{uniquename=0,hash=a0dacf4a4d7a4391529c93e376d32c1b}{%
+           family={Pu},
+           family_i={P\bibinitperiod},
+           given={C.},
+           given_i={C\bibinitperiod}}}%
+        {{uniquename=0,hash=4f38cbbe8e8c28596f97eb2d3c065816}{%
+           family={Han},
+           family_i={H\bibinitperiod},
+           given={W.},
+           given_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab27916d632b9c1bf4ca87003c31b30b}
+      \strng{fullhash}{ab27916d632b9c1bf4ca87003c31b30b}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The paper describes the methodology and the software development of XWRAP, an XML-enabled wrapper construction system for semi-automatic generation of wrapper programs. By XML-enabled we mean that the metadata about information content that are implicit in the original Web pages will be extracted and encoded explicitly as XML tags in the wrapped documents. In addition, the query based content filtering process is performed against the XML documents. The XWRAP wrapper generation framework has three distinct features. First, it explicitly separates tasks of building wrappers that are specific to a Web source from the tasks that are repetitive for any source, and uses a component library to provide basic building blocks for wrapper programs. Second, it provides a user friendly interface program to allow wrapper developers to generate their wrapper code with a few mouse clicks. Third and most importantly, we introduce and develop a two-phase code generation framework. The first phase utilizes an interactive interface facility to encode the source-specific metadata knowledge identified by individual wrapper developers as declarative information extraction rules. The second phase combines the information extraction rules generated at the first phase with the XWRAP component library to construct an executable wrapper program for the given Web source. We report the initial experiments on performance of the XWRAP code generation system and the wrapper programs generated by XWRAP}
+      \field{booktitle}{Proceedings of 16th {International} {Conference} on {Data} {Engineering} ({Cat}. {No}.00CB37073)}
+      \field{shorttitle}{{XWRAP}}
+      \field{title}{{XWRAP}: an {XML}-enabled wrapper construction system for {Web} information sources}
+      \field{year}{2000}
+      \field{pages}{611\bibrangedash 621}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/ICDE.2000.839475
+      \endverb
+      \verb{file}
+      \verb IEEE Xplore Abstract Record:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/MH9USD2T/839475.html:text/html
+      \endverb
+      \keyw{component library,Data mining,declarative information extraction rules,desktop publishing,Educational institutions,executable wrapper program,HTML,hypermedia markup languages,information content,information extraction rules,information resources,interactive interface facility,interactive systems,Internet,Libraries,meta data,metadata,Output feedback,query based content filtering process,semi-automatic generation,Software testing,source-specific metadata knowledge,System testing,two-phase code generation framework,user friendly interface program,user interfaces,Web information sources,Web pages,Web source,wrapped documents,wrapper developers,wrapper programs,Wrapping,XML,XML documents,XML tags,XML-enabled wrapper construction system,XWRAP}
+    \endentry
+    \entry{maedche_learning_2001}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=49b9d2bfb4f6405fb255c47831e440ec}{%
+           family={Maedche},
+           family_i={M\bibinitperiod},
+           given={Alexander},
+           given_i={A\bibinitperiod}}}%
+        {{uniquename=0,hash=3489f3873d85937d1977e3a21e5e76a7}{%
+           family={Staab},
+           family_i={S\bibinitperiod},
+           given={Steffen},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CEUR-WS. org}%
+      }
+      \strng{namehash}{531001650252a7b6cf34d91b90932f32}
+      \strng{fullhash}{531001650252a7b6cf34d91b90932f32}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the {Second} {International} {Conference} on {Semantic} {Web}-{Volume} 40}
+      \field{title}{Learning ontologies for the semantic web}
+      \field{year}{2001}
+      \field{pages}{51\bibrangedash 60}
+      \range{pages}{10}
+      \verb{file}
+      \verb 2001_454_Maedche_Ontology_Learni_1.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/J4QQ63LK/2001_454_Maedche_Ontology_Learni_1.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{maedche_text--onto_2000}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=49b9d2bfb4f6405fb255c47831e440ec}{%
+           family={Maedche},
+           family_i={M\bibinitperiod},
+           given={Alexander},
+           given_i={A\bibinitperiod}}}%
+        {{uniquename=0,hash=3489f3873d85937d1977e3a21e5e76a7}{%
+           family={Staab},
+           family_i={S\bibinitperiod},
+           given={Steffen},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {sn}%
+      }
+      \strng{namehash}{531001650252a7b6cf34d91b90932f32}
+      \strng{fullhash}{531001650252a7b6cf34d91b90932f32}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2000}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Software {Demonstration} at {ICCS}-2000-{Eight} {International} {Conference} on {Conceptual} {Structures}}
+      \field{title}{The text-to-onto ontology learning environment}
+      \field{volume}{38}
+      \field{year}{2000}
+      \verb{file}
+      \verb 10.1.1.67.7639.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/XZN9CU86/10.1.1.67.7639.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{mcauley_addressing_2016}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=24f98302ee924662159ce29687c18e4e}{%
+           family={McAuley},
+           family_i={M\bibinitperiod},
+           given={Julian},
+           given_i={J\bibinitperiod}}}%
+        {{uniquename=0,hash=c0aaabc8584da39966f89d299fd09fe4}{%
+           family={Yang},
+           family_i={Y\bibinitperiod},
+           given={Alex},
+           given_i={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press}%
+      }
+      \strng{namehash}{db7624e00b917bf73364ebf80177cae9}
+      \strng{fullhash}{db7624e00b917bf73364ebf80177cae9}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2016}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-1-4503-4143-1}
+      \field{title}{Addressing {Complex} and {Subjective} {Product}-{Related} {Queries} with {Customer} {Reviews}}
+      \field{urlday}{03}
+      \field{urlmonth}{12}
+      \field{urlyear}{2017}
+      \field{year}{2016}
+      \field{pages}{625\bibrangedash 635}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1145/2872427.2883044
+      \endverb
+      \verb{file}
+      \verb www16b.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/JADPRPWN/www16b.pdf:application/pdf
+      \endverb
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?doid=2872427.2883044
+      \endverb
+    \endentry
+    \entry{meersman_use_2005}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=6b837cda52ad149715262c940fe24eb3}{%
+           family={Meersman},
+           family_i={M\bibinitperiod},
+           given={Robert},
+           given_i={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{6b837cda52ad149715262c940fe24eb3}
+      \strng{fullhash}{6b837cda52ad149715262c940fe24eb3}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2005}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{STAR}
+      \field{number}{02}
+      \field{title}{The use of lexicons and other computer-linguistic tools in semantics, design and cooperation of database systems}
+      \field{volume}{1999}
+      \field{year}{2005}
+      \verb{file}
+      \verb The_use_of_lexicons_and_other_computer-linguistic_.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/LBKU57D7/The_use_of_lexicons_and_other_computer-linguistic_.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{muslea_hierarchical_2001}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=90f784e2810cbd5b9c214bc4f56c8d20}{%
+           family={Muslea},
+           family_i={M\bibinitperiod},
+           given={Ion},
+           given_i={I\bibinitperiod}}}%
+        {{uniquename=0,hash=e7184343b7483ccf69c6be8c6a5cf7e4}{%
+           family={Minton},
+           family_i={M\bibinitperiod},
+           given={Steven},
+           given_i={S\bibinitperiod}}}%
+        {{uniquename=0,hash=3248129f3aa8391714bf32376e874484}{%
+           family={Knoblock},
+           family_i={K\bibinitperiod},
+           given={Craig\bibnamedelima A.},
+           given_i={C\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ad973bb202c83e38e34b7029335dcc7}
+      \strng{fullhash}{3ad973bb202c83e38e34b7029335dcc7}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Autonomous Agents and Multi-Agent Systems}
+      \field{number}{1}
+      \field{title}{Hierarchical wrapper induction for semistructured information sources}
+      \field{volume}{4}
+      \field{year}{2001}
+      \field{pages}{93\bibrangedash 114}
+      \range{pages}{22}
+      \verb{file}
+      \verb 10.1023A1010022931168.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/6Z5EUZCA/10.1023A1010022931168.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{navigli_ontology_2003}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=6fe24dce481a67e247581d4b20435709}{%
+           family={Navigli},
+           family_i={N\bibinitperiod},
+           given={Roberto},
+           given_i={R\bibinitperiod}}}%
+        {{uniquename=0,hash=febeb7cfcc83faab92df9e7561c856ba}{%
+           family={Velardi},
+           family_i={V\bibinitperiod},
+           given={Paola},
+           given_i={P\bibinitperiod}}}%
+        {{uniquename=0,hash=f538e9d958b26480c59fcc1e5a3cfa57}{%
+           family={Gangemi},
+           family_i={G\bibinitperiod},
+           given={Aldo},
+           given_i={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9ab94524ca8ec2649a5c65c8c1a5d0c}
+      \strng{fullhash}{d9ab94524ca8ec2649a5c65c8c1a5d0c}
+      \field{sortinit}{N}
+      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
+      \field{labelyear}{2003}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Intelligent systems}
+      \field{number}{1}
+      \field{title}{Ontology learning and its application to automated terminology translation}
+      \field{volume}{18}
+      \field{year}{2003}
+      \field{pages}{22\bibrangedash 31}
+      \range{pages}{10}
+      \verb{file}
+      \verb Vol.18.Iss.1.A.6.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/68V3WXMG/Vol.18.Iss.1.A.6.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{pappachan_building_2015}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{uniquename=0,hash=6015cfa74cd773cb8de4d87eddafad5e}{%
+           family={Pappachan},
+           family_i={P\bibinitperiod},
+           given={Primal},
+           given_i={P\bibinitperiod}}}%
+        {{uniquename=0,hash=ce16f394bf794b0910c26b60e4461caa}{%
+           family={Yus},
+           family_i={Y\bibinitperiod},
+           given={Roberto},
+           given_i={R\bibinitperiod}}}%
+        {{uniquename=0,hash=c74f1f02f50df5565bac988151f5221f}{%
+           family={Das},
+           family_i={D\bibinitperiod},
+           given={Prajit\bibnamedelima Kumar},
+           given_i={P\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{uniquename=0,hash=fac4a126cdc1903105adf3400b53fd7d}{%
+           family={Mehrotra},
+           family_i={M\bibinitperiod},
+           given={Sharad},
+           given_i={S\bibinitperiod}}}%
+        {{uniquename=0,hash=f72951f82953c1fa5d859938ba2882f5}{%
+           family={Finin},
+           family_i={F\bibinitperiod},
+           given={Tim},
+           given_i={T\bibinitperiod}}}%
+        {{uniquename=0,hash=1ae617106cb039a371e9f86a315bf0eb}{%
+           family={Joshi},
+           family_i={J\bibinitperiod},
+           given={Anupam},
+           given_i={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{781cec6333ce736de9a0910a2168ebc5}
+      \strng{fullhash}{c8a10b40eccb314492b5cb32b8b6c3b6}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{MoDeST}@ {ISWC}}
+      \field{title}{Building a {Mobile} {Applications} {Knowledge} {Base} for the {Linked} {Data} {Cloud}.}
+      \field{year}{2015}
+      \field{pages}{14\bibrangedash 25}
+      \range{pages}{12}
+      \verb{file}
+      \verb 768.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/8NTEEVAK/768.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{roark_noun-phrase_2000}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=87f54978e777fd84f0f580e62cbda8ba}{%
+           family={Roark},
+           family_i={R\bibinitperiod},
+           given={Brian},
+           given_i={B\bibinitperiod}}}%
+        {{uniquename=0,hash=0fdf25cc625982a538938b5c9a3024f8}{%
+           family={Charniak},
+           family_i={C\bibinitperiod},
+           given={Eugene},
+           given_i={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{324be173a144a8ed323872f0a4d5001e}
+      \strng{fullhash}{324be173a144a8ed323872f0a4d5001e}
+      \field{sortinit}{R}
+      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{labelyear}{2000}
+      \field{labelmonth}{08}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Generating semantic lexicons semi-automatically could be a great time saver, relative to creating them by hand. In this paper, we present an algorithm for extracting potential entries for a category from an on-line corpus, based upon a small set of exemplars. Our algorithm finds more correct terms and fewer incorrect ones than previous work in this area. Additionally, the entries that are generated potentially provide broader coverage of the category than would occur to an individual coding them by hand. Our algorithm finds many terms not included within Wordnet (many more than previous algorithms), and could be viewed as an ``enhancer'' of existing broad-coverage resources.}
+      \field{annotation}{Comment: 7 pages, 1 figure, 5 tables}
+      \field{journaltitle}{arXiv:cs/0008026}
+      \field{month}{08}
+      \field{note}{arXiv: cs/0008026}
+      \field{title}{Noun-phrase co-occurrence statistics for semi-automatic semantic lexicon construction}
+      \field{urlday}{05}
+      \field{urlmonth}{01}
+      \field{urlyear}{2018}
+      \field{year}{2000}
+      \verb{file}
+      \verb arXiv\:cs/0008026 PDF:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/CPRAAE3E/Roark and Charniak - 2000 - Noun-phrase co-occurrence statistics for semi-auto.pdf:application/pdf;arXiv.org Snapshot:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/8DK9LHKT/0008026.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/cs/0008026
+      \endverb
+      \keyw{Computer Science - Computation and Language,I.2.7}
+    \endentry
+    \entry{schickel-zuber_using_2007}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=84d9ba0a42561e27913c0e6d4deffbc0}{%
+           family={Schickel-Zuber},
+           family_i={S\bibinithyphendelim Z\bibinitperiod},
+           given={Vincent},
+           given_i={V\bibinitperiod}}}%
+        {{uniquename=0,hash=162828a4272606b444e030f3226e028e}{%
+           family={Faltings},
+           family_i={F\bibinitperiod},
+           given={Boi},
+           given_i={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{d990849508fb60668272f3244f4dd870}
+      \strng{fullhash}{d990849508fb60668272f3244f4dd870}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 13th {ACM} {SIGKDD} international conference on {Knowledge} discovery and data mining}
+      \field{title}{Using hierarchical clustering for learning theontologies used in recommendation systems}
+      \field{year}{2007}
+      \field{pages}{599\bibrangedash 608}
+      \range{pages}{10}
+      \verb{file}
+      \verb frp205-schickel.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/NBCNH4CW/frp205-schickel.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{noauthor_spacy_nodate}{misc}{}
+      \field{sortinit}{s}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelyear}{2017}
+      \field{labelmonth}{12}
+      \field{labelday}{09}
+      \field{datelabelsource}{url}
+      \field{labeltitlesource}{title}
+      \field{abstract}{spaCy is a free open-source library featuring state-of-the-art speed and accuracy and a powerful Python API.}
+      \field{title}{{spaCy} - {Industrial}-strength {Natural} {Language} {Processing} in {Python}}
+      \field{urlday}{09}
+      \field{urlmonth}{12}
+      \field{urlyear}{2017}
+      \verb{file}
+      \verb Snapshot:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/TCUPSKCV/spaCy - Industrial-strength Natural Language Proce.html:text/html
+      \endverb
+      \verb{url}
+      \verb https://spacy.io/index
+      \endverb
+    \endentry
+    \entry{thelen_bootstrapping_2002}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=6b1f53fa82bc96f07586c2f75d88f799}{%
+           family={Thelen},
+           family_i={T\bibinitperiod},
+           given={Michael},
+           given_i={M\bibinitperiod}}}%
+        {{uniquename=0,hash=d937431d4d41abf0c2b023f2c1b7f031}{%
+           family={Riloff},
+           family_i={R\bibinitperiod},
+           given={Ellen},
+           given_i={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{fd303d553e81014fd74ccca3a0fc2baa}
+      \strng{fullhash}{fd303d553e81014fd74ccca3a0fc2baa}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelyear}{2002}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the {ACL}-02 conference on {Empirical} methods in natural language processing-{Volume} 10}
+      \field{title}{A bootstrapping method for learning semantic lexicons using extraction pattern contexts}
+      \field{year}{2002}
+      \field{pages}{214\bibrangedash 221}
+      \range{pages}{8}
+      \verb{file}
+      \verb W02-1028.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/IPFD8JSM/W02-1028.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{velardi_ontolearn_2013}{article}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=febeb7cfcc83faab92df9e7561c856ba}{%
+           family={Velardi},
+           family_i={V\bibinitperiod},
+           given={Paola},
+           given_i={P\bibinitperiod}}}%
+        {{uniquename=0,hash=633e9aa2ddaab0d7ffc63f76700d98fe}{%
+           family={Faralli},
+           family_i={F\bibinitperiod},
+           given={Stefano},
+           given_i={S\bibinitperiod}}}%
+        {{uniquename=0,hash=6fe24dce481a67e247581d4b20435709}{%
+           family={Navigli},
+           family_i={N\bibinitperiod},
+           given={Roberto},
+           given_i={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{c6f873eb1e30b0ed5812db6cf63ce025}
+      \strng{fullhash}{c6f873eb1e30b0ed5812db6cf63ce025}
+      \field{sortinit}{V}
+      \field{sortinithash}{d18f5ce25ce0b5ca7f924e3f6c04870e}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{journaltitle}{Computational Linguistics}
+      \field{number}{3}
+      \field{shorttitle}{Ontolearn reloaded}
+      \field{title}{Ontolearn reloaded: {A} graph-based algorithm for taxonomy induction}
+      \field{volume}{39}
+      \field{year}{2013}
+      \field{pages}{665\bibrangedash 707}
+      \range{pages}{43}
+      \verb{file}
+      \verb COLI_a_00146.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/QL6V5WY7/COLI_a_00146.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{volz_pruning-based_2003}{article}{}
+      \name{author}{4}{}{%
+        {{uniquename=0,hash=c18aa734d51d70cf172773738025ada8}{%
+           family={Volz},
+           family_i={V\bibinitperiod},
+           given={Raphael},
+           given_i={R\bibinitperiod}}}%
+        {{uniquename=0,hash=e0c7ea82e283188bb50d580b79aae9e3}{%
+           family={Studer},
+           family_i={S\bibinitperiod},
+           given={Rudi},
+           given_i={R\bibinitperiod}}}%
+        {{uniquename=0,hash=49b9d2bfb4f6405fb255c47831e440ec}{%
+           family={Maedche},
+           family_i={M\bibinitperiod},
+           given={Alexander},
+           given_i={A\bibinitperiod}}}%
+        {{uniquename=0,hash=25318ee2c6f92539d3ee05db987c41f4}{%
+           family={Lauser},
+           family_i={L\bibinitperiod},
+           given={Boris},
+           given_i={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{57564e73299900a5f3d52675b8559e8f}
+      \strng{fullhash}{ae588d8d64c493f256daabbe7752114f}
+      \field{sortinit}{V}
+      \field{sortinithash}{d18f5ce25ce0b5ca7f924e3f6c04870e}
+      \field{labelyear}{2003}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. UCS}
+      \field{number}{6}
+      \field{title}{Pruning-based identification of domain ontologies}
+      \field{volume}{9}
+      \field{year}{2003}
+      \field{pages}{520\bibrangedash 529}
+      \range{pages}{10}
+      \verb{file}
+      \verb Pruning-based identification of domain ontologies.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/QV98ZYH3/Pruning-based identification of domain ontologies.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{yarowsky_unsupervised_1995}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=beee59f98111d9cd6c89904261da408f}{%
+           family={Yarowsky},
+           family_i={Y\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{beee59f98111d9cd6c89904261da408f}
+      \strng{fullhash}{beee59f98111d9cd6c89904261da408f}
+      \field{sortinit}{Y}
+      \field{sortinithash}{3cbc1e3d286284cedb5e5218a3248f94}
+      \field{labelyear}{1995}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 33rd annual meeting on {Association} for {Computational} {Linguistics}}
+      \field{title}{Unsupervised word sense disambiguation rivaling supervised methods}
+      \field{year}{1995}
+      \field{pages}{189\bibrangedash 196}
+      \range{pages}{8}
+      \verb{file}
+      \verb p189-yarowsky.pdf:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/J7VLF62X/p189-yarowsky.pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{zhou_ontology-supported_2008}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=385056b4e8cf6c17216759ff9cdc17e6}{%
+           family={Zhou},
+           family_i={Z\bibinitperiod},
+           given={Lina},
+           given_i={L\bibinitperiod}}}%
+        {{uniquename=0,hash=b407319a5b74c9f343a9376c3ab0e85a}{%
+           family={Chaovalit},
+           family_i={C\bibinitperiod},
+           given={Pimwadee},
+           given_i={P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{edc67c7cf4e57232cd514428cb20d6d0}
+      \strng{fullhash}{edc67c7cf4e57232cd514428cb20d6d0}
+      \field{sortinit}{Z}
+      \field{sortinithash}{fdda4caaa6b5fa63e0c081dcb159543a}
+      \field{labelyear}{2008}
+      \field{labelmonth}{01}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Polarity mining provides an in-depth analysis of semantic orientations of text information. Motivated by its success in the area of topic mining, we propose an ontology-supported polarity mining (OSPM) approach. The approach aims to enhance polarity mining with ontology by providing detailed topic-specific information. OSPM was evaluated in the movie review domain using both supervised and unsupervised techniques. Results revealed that OSPM outperformed the baseline method without ontology support. The findings of this study not only advance the state of polarity mining research but also shed light on future research directions.}
+      \field{issn}{1532-2890}
+      \field{journaltitle}{Journal of the American Society for Information Science and Technology}
+      \field{month}{01}
+      \field{number}{1}
+      \field{title}{Ontology-supported polarity mining}
+      \field{urlday}{05}
+      \field{urlmonth}{01}
+      \field{urlyear}{2018}
+      \field{volume}{59}
+      \field{year}{2008}
+      \field{pages}{98\bibrangedash 110}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1002/asi.20735
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/PH7PAKKW/Zhou and Chaovalit - 2008 - Ontology-supported polarity mining.pdf:application/pdf;Snapshot:/home/rana/.mozilla/firefox/mwad0hks.default/zotero/storage/7L3R58K3/abstract.html:text/html
+      \endverb
+      \verb{url}
+      \verb http://onlinelibrary.wiley.com/doi/10.1002/asi.20735/abstract
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
